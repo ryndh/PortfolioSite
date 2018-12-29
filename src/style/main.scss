@@ -1,28 +1,10 @@
 @import 'variables';
+@import 'pageHeading';
 @import 'projects';
 @import 'tools';
 @import 'contact';
 @import 'footer';
 @import 'navbar';
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-@keyframes slideUp2 {
-    0% {
-        transform: translateY(150%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-
-
 
 html {
     font-size: 70%; // 1rem is 10px
@@ -30,54 +12,3 @@ html {
     letter-spacing: 2px;
 }
 
-.app {
-    position: relative;
-    
-    .main-body {
-        margin-top: 70px;
-        .main-body-content {
-            .top-grid {
-                display: grid;
-                grid-template-columns: 1.5fr 3fr;
-                border-top: 2px solid $nav-scroll;
-                padding-bottom: 30px;
-                .top-right {
-                    background-color: $nav-scroll;
-                    background-image: url(../../static/assets/computer.jpg);
-                    height: 500px;
-                    // background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    border-bottom-left-radius: 10px;
-                }
-                .top-left {
-                    position: relative;
-                    font-size: 4rem;
-                    letter-spacing: 2px;
-                    .ryan {
-                        position: absolute;
-                        right: -110px;
-                        top: 32%;
-                        overflow: hidden;
-                        span {
-                            display: inline-block;
-                            animation: 1.5s ease 0s 1 slideUp;
-                            color: $word-animated;
-                        }
-                    }
-                    .problems {
-                        position: absolute;
-                        right: -201px;
-                        top: 60%;
-                        overflow: hidden;
-                        span {
-                            display: inline-block;
-                            animation: 2.25s ease 0s 1 slideUp2;
-                            color: $word-animated;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}

@@ -49,38 +49,37 @@ export default class Home extends Component {
 
   }
   
-  clicked = (e) => {
-    console.log('clicked')
-    switch(e.target.id){
+  click = (e) => {
+    switch(e.target.name) {
       case 'home':
-        document.querySelector('.navbar').scrollIntoView({
-          behavior: 'smooth'
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         })
         break
-      case 'projects':
-        document.querySelector('.projects-wrapper').scrollIntoView({
-          behavior: 'smooth'
-        });
+      case 'proj':
+        window.scrollTo({
+          top: 575,
+          behavior: "smooth",
+        })
         break
       case 'contact':
-        document.querySelector('.contact-wrapper').scrollIntoView({
-          behavior: 'smooth'
-        });
+        window.scrollTo({
+          top: 1948,
+          behavior: "smooth",
+        })
         break
-      default:
-        console.log('nothin')
-
     }
   }
-
+  
   render() {
     let size = { backgroundSize: `${100 + (this.state.offset / 4)}%` }
     return (
       <div className='app'>
         <div className='navbar'>
-          <a onClick={this.clicked} id='home' className='link' >Home</a>
-          <a onClick={this.clicked} id='projects' className='link' >Projects</a>
-          <a onClick={this.clicked} id='contact' className='link' >Contact</a>
+          <a onClick={this.click} name='home' className='link' >Home</a>
+          <a onClick={this.click} name='proj'className='link' >Projects</a>
+          <a onClick={this.click} name='contact'className='link' >Contact</a>
         </div>
         <div className='main-body'>
           <div className='main-body-content'>
@@ -91,7 +90,7 @@ export default class Home extends Component {
               </div>
               <div className='top-right' style={size}></div>
             </div>
-            <div className='projects-wrapper'>
+            <div className='projects-wrapper' id='proj'>
               <h1 className='projects-heading'>Projects</h1>
               <div className='projects-grid'>
                 {this.state.projects.map((project, index) => {
@@ -118,7 +117,7 @@ export default class Home extends Component {
                 })}
               </div>
             </div>
-            <div className='contact-wrapper'>
+            <div className='contact-wrapper' id='contact'>
               <h1 className='contact-heading'>Get In Touch</h1>
               <div className='contact-grid'>
                 <div className='contact'>
