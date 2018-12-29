@@ -1,0 +1,13 @@
+
+.footer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background-color: #050608;
+    .footer {
+        color: $footer-color;
+        font-size: $footer-font-size;
+    }
+}

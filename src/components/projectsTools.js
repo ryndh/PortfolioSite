@@ -1,21 +1,26 @@
 export const projectsTools = {
     projects: [
       {
-        'title': 'some title',
-        'url': 'some url',
-        'description': 'some description'
+        'title': 'Movie Micro Service',
+        'url': 'https://moviereactdb.herokuapp.com/',
+        'description': 'React/Python project with a PostgresSQL database.'
       },
 
       {
-        'title': 'some title',
-        'url': 'some url',
-        'description': 'some description'
+        'title': 'Mad Libs',
+        'url': 'https://reactmadlibs.herokuapp.com/',
+        'description': 'React app with multiple madlibs that can be cycled through'
       },
 
       {
-        'title': 'some title',
-        'url': 'some url',
-        'description': 'some description'
+        'title': 'Calculator',
+        'url': 'https://basic-react-calculator.herokuapp.com/',
+        'description': 'Calculator with basic functionality, gradient that changes based on value.'
+      },
+      {
+        'title': 'Github',
+        'url': 'https://github.com/ryndh',
+        'description': "I'm always working on new stuff! Check out my github for more code"
       },
     ],
     tools: [

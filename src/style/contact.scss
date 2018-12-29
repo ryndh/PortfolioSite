@@ -1,0 +1,40 @@
+.contact-wrapper {
+    text-align: center;
+    margin: 50px 0px;
+    padding: 40px 0px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    .contact-heading {
+        margin-top: 30px;
+        font-size: $section-heading-font-size;
+    }
+    .contact-grid {
+        margin-top: 20px;
+        width: 80%;
+        height: 100%;
+        display: grid;
+        justify-items: center;
+        .contact {
+            h3 {
+                line-height: 2.5rem;
+                margin-bottom: 20px;
+            }
+            a{
+                text-decoration: none;
+                i {
+                    transition: 1s ease;
+                    font-size: 7rem;
+                    color: $contact-icon-color;
+                    &:hover {
+                        transition: 1s ease;
+                        transform: scale(1.05);
+                        color: $contact-link-color;
+                    }
+                }
+            }
+        }
+    }
+   
+}

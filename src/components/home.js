@@ -18,17 +18,33 @@ export default class Home extends Component {
 
   scrolled = () => {
     const nav = document.querySelector('.navbar');
+    const tool = document.querySelectorAll('.scale-tool')
+    const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
-    // const imgScrollAt = 20
+    const toolScroolAt = 1100
 
-    // if (window.pageYOffset > imgScrollAt) {
-    // }
     this.setState({ offset: window.pageYOffset })
 
     if (window.pageYOffset > navScrollAt) {
       nav.classList.add('scrolled')
     } else {
       nav.classList.remove('scrolled')
+    }
+
+    if (window.pageYOffset > toolScroolAt) {
+      tool.forEach((item) => {
+        item.classList.add('bigger')
+      })
+      lines.forEach((line)=> {
+        line.classList.add('line')
+      })
+    } else {
+      tool.forEach((item) => {
+        item.classList.remove('bigger')
+      })
+      lines.forEach((line)=> {
+        line.classList.remove('line')
+      })
     }
 
   }
@@ -80,11 +96,11 @@ export default class Home extends Component {
               <div className='projects-grid'>
                 {this.state.projects.map((project, index) => {
                   return (
-                    <div className='project' key={index}>
+                    <a className='project' href={project.url} target='_blank' key={index}>
                       <h1>{project.title}</h1>
-                      <a href={project.url}>Check it out!</a>
+                      <h3 href={project.url} target='_blank'>Check it out!</h3>
                       <p>{project.description}</p>
-                    </div>
+                    </a>
                   )
                 })}
               </div>
@@ -95,8 +111,8 @@ export default class Home extends Component {
                 {this.state.tools.map((tool, index) => {
                   return (
                     <div className='tool' key={index}>
-                      <h1>{tool.title}</h1>
-                      <i className={tool.icon}></i>
+                      <h1 className='h-expand'>{tool.title}</h1>
+                      <i className={`${tool.icon} scale-tool`}></i>
                     </div>
                   )
                 })}
