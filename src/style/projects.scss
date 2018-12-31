@@ -20,6 +20,10 @@
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 300px;
         grid-gap: 50px 0px;
+        @include phone {
+            grid-template-columns: 1fr;
+            width: 90%;
+        }
         .project {
             transition: 1s ease;
             line-height: 2.5rem;
@@ -33,6 +37,9 @@
             color: $project-link;
             font-weight: 700;
             text-decoration: none;
+            @include phone {
+                border-radius: 10%;
+            }
             h1 {
                 font-size: 2.5rem;
                 color: $proj-title-color;

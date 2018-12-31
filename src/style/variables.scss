@@ -1,3 +1,11 @@
+
+@mixin phone {
+    @media (max-width: 700px) {
+        @content;
+    }
+}
+
+
 //fonts
 $section-heading-font-size: 3.5rem;
 

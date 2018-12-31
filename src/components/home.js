@@ -74,6 +74,7 @@ export default class Home extends Component {
   
   render() {
     let size = { backgroundSize: `${100 + (this.state.offset / 4)}%` }
+    let width = window.innerWidth;
     return (
       <div className='app'>
         <div className='navbar'>
@@ -83,7 +84,7 @@ export default class Home extends Component {
         </div>
         <div className='main-body'>
           <div className='main-body-content'>
-            <div className='top-grid'>
+            <div className='top-grid' style={width < 700 ? size : null}>
               <div className='top-left'>
                 <p className='ryan'>Hey there, I'm <span> Ryan</span></p>
                 <p className='problems'>Let's solve <span>Problems</span></p>

@@ -38,9 +38,18 @@
         justify-items: center;
         grid-template-columns: 1fr 1fr 1fr;
         grid-auto-rows: 300px;
+        @include phone {
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 200px;
+            width: 100%;
+
+        }
         .tool {
             width: 50%;
             transition: 1s ease;
+            @include phone {
+                width: 60%;
+            }
             .h-expand {
                 color: $tools-title-color;
                 transition: 1s ease;
