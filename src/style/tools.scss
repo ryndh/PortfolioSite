@@ -48,7 +48,7 @@
             width: 50%;
             transition: 1s ease;
             @include phone {
-                width: 60%;
+                width: 75%;
             }
             .h-expand {
                 color: $tools-title-color;
