@@ -96,9 +96,9 @@
                         top: 32%;
                         overflow: hidden;
                         @include phone {
-                            position: relative;
-                            right: -70px;
-                            margin-bottom: 150px;
+                            position: initial;
+                            margin-bottom: 190px;
+                            margin-left: 10px;
                         }
                         span {
                             display: inline-block;
@@ -112,8 +112,8 @@
                         top: 60%;
                         overflow: hidden;
                         @include phone {
-                            position: relative;
-                            right: -150px
+                            position: initial;
+                            margin-left: 40px;
                         }
                         span {
                             display: inline-block;

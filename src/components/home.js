@@ -21,7 +21,7 @@ export default class Home extends Component {
     const tool = document.querySelectorAll('.scale-tool')
     const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
-    const toolScroolAt = 1100
+    const toolScroolAt = window.innerWidth > 700 ? 1100 : 1850;
 
     this.setState({ offset: window.pageYOffset })
 
