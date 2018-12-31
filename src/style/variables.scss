@@ -1,7 +1,12 @@
 
 @mixin phone {
-    @media (max-width: 700px) {
+    @media (max-width: 880px) {
         @content;
+    }
+}
+@mixin phone2 {
+    @media (width: minmax(550px, 880px)) {
+        @content
     }
 }
 

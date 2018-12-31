@@ -35,6 +35,7 @@
             text-decoration: none;
             color: $nav-link-prescroll-color;
             padding: 0px 10px;
+            cursor: pointer;
         }
     }
     .scrolled {
@@ -68,14 +69,14 @@
                     align-items: center;
                     // grid-template-columns: 1fr 1.5fr;
                     background-color: $nav-scroll;
-                    background-image: url(../../static/assets/computer.jpg);
+                    background-image: url(../../static/assets/computer.png);
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
                 }
                 .top-right {
                     background-color: $nav-scroll;
-                    background-image: url(../../static/assets/computer.jpg);
+                    background-image: url(../../static/assets/computer.png);
                     height: 500px;
                     // background-size: cover;
                     background-repeat: no-repeat;
