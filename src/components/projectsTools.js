@@ -8,7 +8,7 @@ export const projectsTools = {
 
       {
         'title': 'Diner',
-        'url': 'https://reactdiner.heroku.com',
+        'url': 'https://reactdiner.herokuapp.com',
         'description': "Diner with shopping cart and checkout functionality"
       },
       {
