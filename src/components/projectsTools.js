@@ -7,6 +7,11 @@ export const projectsTools = {
       },
 
       {
+        'title': 'Diner',
+        'url': 'https://reactdiner.heroku.com',
+        'description': "Diner with shopping cart and checkout functionality"
+      },
+      {
         'title': 'Mad Libs',
         'url': 'https://reactmadlibs.herokuapp.com/',
         'description': 'React app with multiple madlibs that can be cycled through'
@@ -16,11 +21,6 @@ export const projectsTools = {
         'title': 'Calculator',
         'url': 'https://basic-react-calculator.herokuapp.com/',
         'description': 'Calculator with basic functionality, gradient that changes based on value.'
-      },
-      {
-        'title': 'Github',
-        'url': 'https://github.com/ryndh',
-        'description': "I'm always working on new stuff! Check out my github for more code"
       },
     ],
     tools: [
