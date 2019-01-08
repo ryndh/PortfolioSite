@@ -73,8 +73,8 @@ export default class Home extends Component {
   }
   
   render() {
-    let size = { backgroundSize: `${100 + (this.state.offset / 4)}%` }
-    let sizePhone = { backgroundSize: `${140 + (this.state.offset / 4)}%` }
+    let size = { backgroundSize: `${120 + (this.state.offset / 4)}%` }
+    let sizePhone = { backgroundSize: `${150 + (this.state.offset / 4)}%` }
     let width = window.innerWidth;
     return (
       <div className='app'>
@@ -100,7 +100,9 @@ export default class Home extends Component {
                     <a className='project' href={project.url} target='_blank' key={index}>
                       <h1>{project.title}</h1>
                       <h3 href={project.url} target='_blank'>Check it out!</h3>
-                      <p>{project.description}</p>
+                      <div className='description'>
+                        <p>{project.description}</p>
+                      </div>
                     </a>
                   )
                 })}

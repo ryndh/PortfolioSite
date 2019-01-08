@@ -3,7 +3,7 @@ export const projectsTools = {
       {
         'title': 'Movie Micro Service',
         'url': 'https://moviereactdb.herokuapp.com/',
-        'description': 'React/Python project with a PostgresSQL database.'
+        'description': 'React/Python project with a PostgreSQL database'
       },
 
       {
@@ -20,7 +20,7 @@ export const projectsTools = {
       {
         'title': 'Calculator',
         'url': 'https://basic-react-calculator.herokuapp.com/',
-        'description': 'Calculator with basic functionality, gradient that changes based on value.'
+        'description': 'Calculator with basic functionality, gradient that changes based on value'
       },
     ],
     tools: [
