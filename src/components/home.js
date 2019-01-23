@@ -88,7 +88,7 @@ export default class Home extends Component {
             <div className='top-grid' style={width < 700 ? sizePhone : null}>
               <div className='top-left'>
                 <p className='ryan'>Hey there, I'm <span> Ryan</span></p>
-                <p className='problems'>Let's solve <span>Problems</span></p>
+
               </div>
               <div className='top-right' style={size}></div>
             </div>

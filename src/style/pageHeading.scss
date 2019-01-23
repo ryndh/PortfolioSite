@@ -8,6 +8,14 @@
         transform: translateY(0%);
     }
 }
+@keyframes slideOver {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
 
 .app {
     position: relative;
@@ -87,9 +95,11 @@
                     }
                     .ryan {
                         position: absolute;
-                        right: -110px;
-                        top: 32%;
+                        right: -130px;
+                        top: 36%;
+                        font-size: 1.2em;
                         overflow: hidden;
+                        animation: slideOver 2s ease 0s 1 forwards;
                         @include phone {
                             position: initial;
                             margin-bottom: 190px;
@@ -98,7 +108,7 @@
                         span {
                             opacity: 0;
                             display: inline-block;
-                            animation: slideUp 1.5s ease .6s 1 forwards;
+                            animation: slideUp 1s ease 1.8s 1 forwards;
                             color: $word-animated;
                         }
                     }
