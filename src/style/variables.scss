@@ -16,28 +16,28 @@ $section-heading-font-size: 3.5rem;
 
 
 //Nav Section
-$nav-prescroll-bg: white;
-$nav-link-prescroll-color: #050608;
-$nav-scroll: #050608;
-$nav-links: #00d3e4;
+// $nav-prescroll-bg: white;
+$nav-bg: linear-gradient(to right, white 25%, #b2bdc7);
+$nav-scroll: #e4e5ec;
+$nav-links: #050608;
 $nav-box-shadow: 0px 0px 3px 0px white;
 
 //Heading Section
-$word-animated: white;
+$word-animated: #050608;
 
 //Projects Section
 $project-link: #00d3e4;
 $proj-top-border: #050608;
-$proj-title-color: #050608;
+$proj-title-color: white;
 $proj-desc-color: #050608;
 $hover-text-color: white;
 
 //Tools Section
 $tools-heading-color: white;
 $tools-icon-color: white;
-$tools-bg: #050608;
-$tools-border: #ff4400;
-$tools-title-color: #00d3e4;
+$tools-bg: #d2d9e0;
+$tools-border: white;
+$tools-title-color: #050608;
 $tool-scale: scale(1.4);
 
 //Contact Section
@@ -45,5 +45,6 @@ $contact-link-color: #00d3e4;
 $contact-icon-color: #050608;
 
 //Footer Section
-$footer-color: #00d3e4;
+$footer-bg: #d2d9e0;
+$footer-color: #050608;
 $footer-font-size: initial;

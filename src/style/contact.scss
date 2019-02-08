@@ -23,13 +23,13 @@
             }
             a{
                 text-decoration: none;
-                i {
+                .linkedin {
                     transition: 1s ease;
-                    font-size: 7rem;
-                    color: $contact-icon-color;
+                    height: 70px;
+                    object-fit: contain;
                     &:hover {
                         transition: 1s ease;
-                        transform: scale(1.05);
+                        transform: scale(1.1);
                         color: $contact-link-color;
                     }
                 }

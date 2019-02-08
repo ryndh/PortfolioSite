@@ -69,7 +69,7 @@
                     display: block;
                     padding-bottom: 10px;
                     border-bottom: 2px solid $tools-border;
-                    border-radius: 3px;
+                    border-radius: 2px;
                     animation: borderGrow 2s ease 0s 1 ;
                 }
             }
@@ -80,9 +80,10 @@
                 transition: 1.5s ease;
                 transform: $tool-scale;
             }
-            i {
-                font-size: 7rem;
-                color: $tools-icon-color;
+            img {
+                object-fit: contain;
+                height: 90px;
+                width: 100px;
             }
         }
     }

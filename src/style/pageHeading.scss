@@ -23,6 +23,7 @@
         z-index: 10;
         height: 70px;
         background-color: $nav-scroll;
+        background-image: $nav-bg;
         position: fixed;
         width: 100%;
         top: 0;
@@ -60,73 +61,46 @@
     .main-body {
         margin-top: 70px;
         .main-body-content {
-            .top-grid {
-                display: grid;
-                grid-template-columns: 1.5fr 3fr;
-                // border-top: 2px solid $nav-scroll;
-                padding-bottom: 30px;
+            .top {
+                position: relative;
+                background-image: url(../../static/assets/computer.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 500px;
                 @include phone {
-                    display: flex;
-                    // justify-content: center;
-                    align-items: center;
-                    // grid-template-columns: 1fr 1.5fr;
-                    background-color: $nav-scroll;
-                    background-image: url(../../static/assets/computer.jpg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: cover;
+                    height: 400px;
                 }
-                .top-right {
-                    background-color: $nav-scroll;
-                    background-image: url(../../static/assets/computer.jpg);
-                    height: 500px;
-                    // background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    border-bottom-left-radius: 10px;
-                }
-                .top-left {
-                    position: relative;
+                .ryan {
+                    position: absolute;
+                    right: 120px;
+                    top: 27%;
                     font-size: 4rem;
-                    letter-spacing: 2px;
+                    overflow: hidden;
                     @include phone {
-                        font-size: 3rem;
-                        color: white;
+                        right: 20px;
+                        top: 5%;
+                        margin-bottom: 190px;
                     }
-                    .ryan {
-                        position: absolute;
-                        right: -130px;
-                        top: 36%;
-                        font-size: 1.2em;
-                        overflow: hidden;
-                        animation: slideOver 2s ease 0s 1 forwards;
-                        @include phone {
-                            position: initial;
-                            margin-bottom: 190px;
-                            margin-left: 10px;
-                        }
-                        span {
-                            opacity: 0;
-                            display: inline-block;
-                            animation: slideUp 1s ease 1.8s 1 forwards;
-                            color: $word-animated;
-                        }
+                    span {
+                        opacity: 0;
+                        display: inline-block;
+                        animation: slideUp 2s ease 0s 1 forwards;                        
                     }
-                    .problems {
-                        position: absolute;
-                        right: -201px;
-                        top: 60%;
-                        overflow: hidden;
-                        @include phone {
-                            position: initial;
-                            margin-left: 40px;
-                        }
-                        span {
-                            opacity: 0;
-                            display: inline-block;
-                            animation: slideUp 1.5s ease 1.1s 1 forwards;
-                            color: $word-animated;
-                        }
+                }
+                .dev {
+                    overflow: hidden;
+                    position: absolute;
+                    right: 120px;
+                    top: 45%;
+                    font-size: 4rem;
+                    @include phone {
+                        right: 20px;
+                        top: 20%;
+                    }
+                    span {
+                        opacity: 0;
+                        display: inline-block;
+                        animation: slideUp 2s ease 1s 1 forwards;                        
                     }
                 }
             }
