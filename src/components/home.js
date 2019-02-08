@@ -21,7 +21,7 @@ export default class Home extends Component {
     const tool = document.querySelectorAll('.scale-tool')
     const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
-    const toolScroolAt = window.innerWidth > 700 ? 1100 : 1850;
+    const toolScroolAt = window.innerWidth > 700 ? 1600 : 2250;
 
     this.setState({ offset: window.pageYOffset })
 
@@ -59,13 +59,13 @@ export default class Home extends Component {
         break
       case 'proj':
         window.scrollTo({
-          top: 575,
+          top: 800,
           behavior: "smooth",
         })
         break
       case 'contact':
         window.scrollTo({
-          top: window.innerWidth > 700 ? 1948 : 2700,
+          top: window.innerWidth > 700 ? 2300 : 2700,
           behavior: "smooth",
         })
         break
@@ -73,8 +73,8 @@ export default class Home extends Component {
   }
 
   render() {
-    let size = { backgroundSize: `${100 + (this.state.offset / 4)}%` }
-    let sizePhone = { backgroundSize: `${120 + (this.state.offset / 4)}%` }
+    let size = { backgroundSize: `${100 + (this.state.offset / 20)}%` }
+    let sizePhone = { backgroundSize: `${120 + (this.state.offset / 20)}%` }
     let width = window.innerWidth;
     return (
       <div className='app'>
@@ -104,6 +104,10 @@ export default class Home extends Component {
                     </a>
                   )
                 })}
+              </div>
+              <div className='github-link'>
+                <h2 >Want to see the code? Go to my github by clicking here <i class="fas fa-hand-point-right"></i></h2>
+                <a href='http://www.github.com/ryndh/' target='_blank'><i class="fab fa-github"></i></a>
               </div>
             </div>
             <div className='tools-wrapper'>

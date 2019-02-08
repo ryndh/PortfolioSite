@@ -102,5 +102,26 @@
             background-position: center;
         }
     }
+    .github-link {
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        a {
+            transition: .5s ease;
+            text-decoration: none;
+            color: $github-link;
+            &:hover {
+                transition: .5s ease;
+                transform: scale(1.1)
+            }
+            .fab {
+                margin-left: 30px;
+                font-size: 5rem;
+            }
+        }
+        
+           
+    }
+    
    
 }
