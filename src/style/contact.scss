@@ -22,11 +22,15 @@
                 margin-bottom: 20px;
             }
             a{
+                display: flex;
+                justify-content: center;
                 text-decoration: none;
                 .linkedin {
+                    background-image: url('../../static/assets/linkedin.png');
+                    background-size: cover;
                     transition: 1s ease;
                     height: 70px;
-                    object-fit: contain;
+                    width: 70px;
                     &:hover {
                         transition: 1s ease;
                         transform: scale(1.1);

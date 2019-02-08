@@ -19,7 +19,7 @@
 .tools-wrapper {
     text-align: center;
     background-color: $tools-bg;
-    margin-top: 50px;
+    margin-top: 150px;
     padding: 50px 0px;
     width: 100%;
     display: grid;
@@ -47,45 +47,68 @@
         .tool {
             width: 50%;
             transition: 1s ease;
+            display: flex;
+            flex-direction: column;
             @include phone {
                 width: 75%;
             }
-            .h-expand {
-                color: $tools-title-color;
-                transition: 1s ease;
-                margin-bottom: 30px;
-                padding-bottom: 10px;
-                &::after {
-                    display: block;
-                    content: '';
+            .title {
+                .h-expand {
+                    color: $tools-title-color;
+                    transition: 1s ease;
+                    margin-bottom: 30px;
                     padding-bottom: 10px;
-                    border-bottom: 2px solid $tools-border;
-                    animation: borderShrink 2s ease 0s 1 forwards;
+                    &::after {
+                        display: block;
+                        content: '';
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid $tools-border;
+                        animation: borderShrink 2s ease 0s 1 forwards;
+                    }
                 }
-            }
-            .line {
-                &::after {
-                    content: '';
-                    display: block;
-                    padding-bottom: 10px;
-                    border-bottom: 2px solid $tools-border;
-                    border-radius: 2px;
-                    animation: borderGrow 2s ease 0s 1 ;
+                .line {
+                    &::after {
+                        content: '';
+                        display: block;
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid $tools-border;
+                        border-radius: 2px;
+                        animation: borderGrow 2s ease 0s 1 ;
+                    }
                 }
-            }
-            .scale-tool {
-                transition: 1.5s ease;
-            }
-            .bigger {
-                transition: 1.5s ease;
-                transform: $tool-scale;
-            }
-            img {
-                object-fit: contain;
-                height: 90px;
-                width: 100px;
+              
             }
         }
+        .scale-tool {
+            transition: 1.5s ease;
+        }
+        .bigger {
+            transition: 1.5s ease;
+            transform: $tool-scale;
+        }
+        .html {
+            background-image: url(../../static/assets/html.png);
+            @include bg-icon
+        }
+        .react {
+            background-image: url(../../static/assets/react.png);
+            @include bg-icon
+        }
+        .python {
+            background-image: url(../../static/assets/python.png);
+            @include bg-icon
+        }
+        .js {
+            background-image: url(../../static/assets/js.png);
+            @include bg-icon
+        }
+        .git {
+            background-image: url(../../static/assets/git.png);
+            @include bg-icon
+        }
+        .scss {
+            background-image: url(../../static/assets/sass.png);
+            @include bg-icon
+        }        
     }
-   
 }

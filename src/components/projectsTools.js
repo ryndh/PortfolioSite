@@ -33,26 +33,32 @@ export const projectsTools = {
       {
         'title': 'React',
         'icon': "../../static/assets/react.png",
+        'class': 'react',
       },
       {
         'title': 'Python',
         'icon': "../../static/assets/python.png",
+        'class': 'python',
       },
       {
         'title': 'SCSS/CSS',
         'icon': "../../static/assets/sass.png",
+        'class': 'scss'
       },
       {
         'title': 'HTML5',
         'icon': "../../static/assets/html.png",
+        'class': 'html'
       },
       {
         'title': 'Git',
         'icon': "../../static/assets/git.png",
+        'class': 'git'
       },
       {
         'title': 'Javascript',
         'icon': "../../static/assets/js.png",
+        'class': 'js',
       },
     ],
     offset: 0,

@@ -6,8 +6,17 @@
 }
 @mixin phone2 {
     @media (width: minmax(550px, 880px)) {
-        @content
+        @content;
     }
+}
+
+@mixin bg-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70px;
+    width: 100px;
+    align-self: center;
 }
 
 
@@ -17,13 +26,14 @@ $section-heading-font-size: 3.5rem;
 
 //Nav Section
 // $nav-prescroll-bg: white;
-$nav-bg: linear-gradient(to right, white 25%, #b2bdc7);
+$nav-bg: linear-gradient(to right, white 20%, #b2bdc7);
 $nav-scroll: #e4e5ec;
 $nav-links: #050608;
 $nav-box-shadow: 0px 0px 3px 0px white;
 
 //Heading Section
 $word-animated: #050608;
+$top-words: #050608;
 
 //Projects Section
 $project-link: #00d3e4;

@@ -112,8 +112,12 @@ export default class Home extends Component {
                 {this.state.tools.map((tool, index) => {
                   return (
                     <div className='tool' key={index}>
+                      <div className='title'>
                       <h1 className='h-expand'>{tool.title}</h1>
-                      <img className='scale-tool' src={tool.icon}></img>
+                      </div>
+
+                      <div className={`scale-tool ${tool.class}`}></div>
+                      
                     </div>
                   )
                 })}
@@ -125,7 +129,8 @@ export default class Home extends Component {
                 <div className='contact'>
                   <h3>I'm always open to new ideas or opportunities! <br /> Send me a message on LinkedIn and let's talk!</h3>
                   <a href='https://www.linkedin.com/in/ryan-hull-3b4806b9/' target='_blank' className='linkedin-link'>
-                  <img className="linkedin" src={'../../static/assets/linkedin.png'}></img></a>
+                  <div className='linkedin'></div>
+                  </a>
                 </div>
               </div>
             </div>
