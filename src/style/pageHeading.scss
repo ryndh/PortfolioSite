@@ -69,7 +69,11 @@
                 height: 700px;
                 margin-bottom: 150px;
                 @include phone {
-                    height: 400px;
+                    height: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
                 }
                 .ryan {
                     position: absolute;
@@ -79,9 +83,7 @@
                     overflow: hidden;
                     color: $top-words;
                     @include phone {
-                        right: 20px;
-                        top: 5%;
-                        margin-bottom: 190px;
+                        top: 2%;
                     }
                     span {
                         opacity: 0;
@@ -97,8 +99,8 @@
                     font-size: 4rem;
                     color: $top-words;
                     @include phone {
-                        right: 20px;
-                        top: 20%;
+                        right: 0;
+                        top: 22%;
                     }
                     span {
                         opacity: 0;

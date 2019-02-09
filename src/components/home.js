@@ -21,7 +21,7 @@ export default class Home extends Component {
     const tool = document.querySelectorAll('.scale-tool')
     const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
-    const toolScroolAt = window.innerWidth > 700 ? 1650 : 2250;
+    const toolScroolAt = window.innerWidth > 700 ? 1650 : 1900;
 
     this.setState({ offset: window.pageYOffset })
 
@@ -107,7 +107,7 @@ export default class Home extends Component {
                 })}
               </div>
               <div className='github-link'>
-                <h2 >Want to see the code? Go to my github by clicking here <i className="fas fa-hand-point-right"></i></h2>
+                <h2 >Want to see the code? Go to my github by clicking here {width > 700 ? <i class="far fa-hand-point-right"></i>: <i class="far fa-hand-point-down"></i>}</h2>
                 <a href='http://www.github.com/ryndh/' target='_blank'><i className="fab fa-github"></i></a>
               </div>
             </div>
