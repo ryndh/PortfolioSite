@@ -21,7 +21,7 @@ export default class Home extends Component {
     const tool = document.querySelectorAll('.scale-tool')
     const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
-    const toolScroolAt = window.innerWidth > 700 ? 1600 : 2250;
+    const toolScroolAt = window.innerWidth > 700 ? 1650 : 2250;
 
     this.setState({ offset: window.pageYOffset })
 
@@ -76,6 +76,7 @@ export default class Home extends Component {
     let size = { backgroundSize: `${100 + (this.state.offset / 20)}%` }
     let sizePhone = { backgroundSize: `${120 + (this.state.offset / 20)}%` }
     let width = window.innerWidth;
+    const currentTime = new Date
     return (
       <div className='app'>
         <div className='navbar'>
@@ -106,8 +107,8 @@ export default class Home extends Component {
                 })}
               </div>
               <div className='github-link'>
-                <h2 >Want to see the code? Go to my github by clicking here <i class="fas fa-hand-point-right"></i></h2>
-                <a href='http://www.github.com/ryndh/' target='_blank'><i class="fab fa-github"></i></a>
+                <h2 >Want to see the code? Go to my github by clicking here <i className="fas fa-hand-point-right"></i></h2>
+                <a href='http://www.github.com/ryndh/' target='_blank'><i className="fab fa-github"></i></a>
               </div>
             </div>
             <div className='tools-wrapper'>
@@ -140,7 +141,7 @@ export default class Home extends Component {
             </div>
             <div className='footer-wrapper'>
               <div className='footer'>
-                &copy; 2018  &#124; Ryan
+                &copy; {currentTime.getFullYear()}  &#124; Ryan
                 </div>
             </div>
           </div>
