@@ -8,6 +8,17 @@ export default class Home extends Component {
     this.state = projectsTools
   }
 
+  componentWillMount(){
+    let currentDate = new Date
+    fetch('https://python-react-micro.herokuapp.com/visitor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date: currentDate.toLocaleString()})
+          }).then(response => { return response.json() })        
+  }
+
   componentDidMount() {
     window.addEventListener('scroll', this.scrolled)
   }
@@ -107,7 +118,7 @@ export default class Home extends Component {
                 })}
               </div>
               <div className='github-link'>
-                <h2 >Want to see the code? Go to my github by clicking here {width > 700 ? <i class="far fa-hand-point-right"></i>: <i class="far fa-hand-point-down"></i>}</h2>
+                <h2 >Want to see the code? Go to my github by clicking here {width > 700 ? <i className="far fa-hand-point-right"></i>: <i className="far fa-hand-point-down"></i>}</h2>
                 <a href='http://www.github.com/ryndh/' target='_blank'><i className="fab fa-github"></i></a>
               </div>
             </div>
