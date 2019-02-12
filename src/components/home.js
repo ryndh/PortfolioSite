@@ -11,13 +11,13 @@ export default class Home extends Component {
   componentWillMount(){
     let currentDate = new Date
 
-    // fetch('https://portfoliopython.herokuapp.com/visitors', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ date: currentDate.toString()})
-    //       }).then(response => { return response.json() })        
+    fetch('https://portfoliopython.herokuapp.com/visitors', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date: currentDate.toString()})
+          }).then(response => { return response.json() })        
   }
 
   componentDidMount() {
