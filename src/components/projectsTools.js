@@ -62,4 +62,5 @@ export const projectsTools = {
       },
     ],
     offset: 0,
+    clicks: [],
   }

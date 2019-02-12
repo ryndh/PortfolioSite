@@ -28,6 +28,7 @@
             grid-gap: 0px 0px;
         }
         .project {
+            position: relative;
             transition: 1s ease;
             line-height: 2.5rem;
             width: 100%;
@@ -81,6 +82,12 @@
             &:active {
                 transition: .5s ease;
                 transform: scale(.98);
+            }
+            .stats {
+                position: absolute;
+                bottom: -40px;
+                color: $stats-color;
+                align-self: center;
             }
         }
         .project-diner {

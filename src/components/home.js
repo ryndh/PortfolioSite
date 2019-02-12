@@ -11,17 +11,28 @@ export default class Home extends Component {
   componentWillMount(){
     let currentDate = new Date
 
-    fetch('https://portfoliopython.herokuapp.com/visitors', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ date: currentDate.toString()})
-          }).then(response => { return response.json() })        
+    // fetch('https://portfoliopython.herokuapp.com/visitors', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ date: currentDate.toString()})
+    //       }).then(response => { return response.json() })        
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.scrolled)
+    fetch('https://portfoliopython.herokuapp.com/click_stats', {
+            method: "GET",
+            headers: {
+                "accept": "application/json",
+                "content-type": 'application/json'
+            }
+        })
+            .then(response => { return response.json() })
+            .then(responseData => { return responseData })
+            .then(data => { this.setState({clicks : data})})
+            .catch(err => console.log("Fetch Error", err))
   }
 
   componentWillUnmount() {
@@ -123,6 +134,9 @@ export default class Home extends Component {
                         <h1>{project.title}</h1>
                         <p>{project.description}</p>
                         <h3 href={project.url} target='_blank'>Check it out!</h3>
+                      </div>
+                      <div className='stats'>
+                        {`Link clicked ${this.state.clicks.length > 0 ? this.state.clicks.filter(item => item[0] == project.title)[0][1] : null} times since 2/11/19`}
                       </div>
                     </a>
                   )
