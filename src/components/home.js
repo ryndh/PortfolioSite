@@ -10,12 +10,13 @@ export default class Home extends Component {
 
   componentWillMount(){
     let currentDate = new Date
-    fetch('https://python-react-micro.herokuapp.com/visitor', {
+
+    fetch('https://portfoliopython.herokuapp.com/visitors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ date: currentDate.toLocaleString()})
+            body: JSON.stringify({ date: currentDate.toString()})
           }).then(response => { return response.json() })        
   }
 
@@ -58,6 +59,16 @@ export default class Home extends Component {
       })
     }
 
+  }
+
+  visited = (title) => {
+    fetch('https://portfoliopython.herokuapp.com/clicks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ site: title })
+          }).then(response => { return response.json() })  
   }
 
   click = (e) => {
@@ -106,7 +117,7 @@ export default class Home extends Component {
               <div className='projects-grid'>
                 {this.state.projects.map((project, index) => {
                   return (
-                    <a className={`project ${project.classname}`} href={project.url} target='_blank' key={index}>
+                    <a className={`project ${project.classname}`} href={project.url} target='_blank' key={index} onClick={() => this.visited(project.title)}>
 
                       <div className='description'>
                         <h1>{project.title}</h1>
