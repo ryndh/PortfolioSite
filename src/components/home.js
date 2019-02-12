@@ -15,7 +15,6 @@ export default function Home() {
   let width = window.innerWidth;
 
   useEffect(() => {
-    console.log('effect')
     fetch('https://portfoliopython.herokuapp.com/visitors', {
       method: 'POST',
       headers: {
@@ -96,9 +95,9 @@ export default function Home() {
   return (
     <div className='app'>
       <div className='navbar'>
-        <a onClick={() => click()} name='home' className='link' >Home</a>
-        <a onClick={() => click()} name='proj' className='link' >Projects</a>
-        <a onClick={() => click()} name='contact' className='link' >Contact</a>
+        <a onClick={(e) => click(e)} name='home' className='link' >Home</a>
+        <a onClick={(e) => click(e)} name='proj' className='link' >Projects</a>
+        <a onClick={(e) => click(e)} name='contact' className='link' >Contact</a>
       </div>
       <div className='main-body'>
         <div className='main-body-content'>

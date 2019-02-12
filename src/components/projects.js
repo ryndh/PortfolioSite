@@ -44,7 +44,7 @@ export function Projects() {
                                 <h3 href={project.url} target='_blank'>Click to visit!</h3>
                             </div>
                             <div className='stats'>
-                                {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/11/19`}
+                                {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/12/19`}
                             </div>
                         </a>
                     )
