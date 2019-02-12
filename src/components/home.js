@@ -8,6 +8,7 @@ import { Footer } from './footer';
 export default function Home() {
 
   const [offset, setOffset] = useState(0)
+  const todaysDate = new Date
   let size = { backgroundSize: `${100 + (offset / 20)}%` }
   let sizePhone = { backgroundSize: `${120 + (offset / 20)}%` }
   let width = window.innerWidth;
@@ -18,7 +19,7 @@ export default function Home() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ date: currentDate.toString()})
+            body: JSON.stringify({ date: todaysDate.toString()})
           }).then(response => { return response.json() })     
   })
 
