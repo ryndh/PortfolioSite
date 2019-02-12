@@ -1,52 +1,43 @@
-import React, { Component } from 'react';
-import { projectsTools } from './projectsTools';
+import React, { useEffect, useState } from 'react';
+import { portfolioObj } from './projectsTools';
+import { Projects } from './projects';
+import { Tools } from './tools';
+import { Contact } from './contact';
+import { Footer } from './footer';
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props)
+export default function Home() {
 
-    this.state = projectsTools
-  }
+  const [offset, setOffset] = useState(0)
+  let size = { backgroundSize: `${100 + (offset / 20)}%` }
+  let sizePhone = { backgroundSize: `${120 + (offset / 20)}%` }
+  let width = window.innerWidth;
 
-  componentWillMount(){
-    let currentDate = new Date
-
+  useEffect(() => {
     fetch('https://portfoliopython.herokuapp.com/visitors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ date: currentDate.toString()})
-          }).then(response => { return response.json() })        
-  }
+          }).then(response => { return response.json() })     
+  })
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.scrolled)
-    fetch('https://portfoliopython.herokuapp.com/click_stats', {
-            method: "GET",
-            headers: {
-                "accept": "application/json",
-                "content-type": 'application/json'
-            }
-        })
-            .then(response => { return response.json() })
-            .then(responseData => { return responseData })
-            .then(data => { this.setState({clicks : data})})
-            .catch(err => console.log("Fetch Error", err))
-  }
+  useEffect(() => {
+    window.addEventListener('scroll', scrolled())
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.scrolled)
-  }
+    return function cleanup() {
+      window.removeEventListener('scroll', scrolled())
+    }
+  })
 
-  scrolled = () => {
+  const scrolled = () => {
     const nav = document.querySelector('.navbar');
     const tool = document.querySelectorAll('.scale-tool')
     const lines = document.querySelectorAll('.h-expand')
     const navScrollAt = 0
     const toolScroolAt = window.innerWidth > 700 ? 1650 : 1900;
 
-    this.setState({ offset: window.pageYOffset })
+    setOffset({ offset: window.pageYOffset })
 
     if (window.pageYOffset > navScrollAt) {
       nav.classList.add('scrolled')
@@ -72,17 +63,17 @@ export default class Home extends Component {
 
   }
 
-  visited = (title) => {
+  const visited = (title) => {
     fetch('https://portfoliopython.herokuapp.com/clicks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ site: title })
-          }).then(response => { return response.json() })  
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ site: title })
+    }).then(response => { return response.json() })
   }
 
-  click = (e) => {
+  const click = (e) => {
     switch (e.target.name) {
       case 'home':
         window.scrollTo({
@@ -105,84 +96,26 @@ export default class Home extends Component {
     }
   }
 
-  render() {
-    let size = { backgroundSize: `${100 + (this.state.offset / 20)}%` }
-    let sizePhone = { backgroundSize: `${120 + (this.state.offset / 20)}%` }
-    let width = window.innerWidth;
-    const currentTime = new Date
-    return (
-      <div className='app'>
-        <div className='navbar'>
-          <a onClick={this.click} name='home' className='link' >Home</a>
-          <a onClick={this.click} name='proj' className='link' >Projects</a>
-          <a onClick={this.click} name='contact' className='link' >Contact</a>
-        </div>
-        <div className='main-body'>
-          <div className='main-body-content'>
-            <div className='top' style={width < 700 ? sizePhone : null} style={size}>
-                <p className='ryan'><span>Ryan Hull</span></p>
-                <p className='dev'><span>Full Stack Developer</span></p>
-            </div>
-            <div className='projects-wrapper' id='proj'>
-              <h1 className='projects-heading'>Projects</h1>
-              <div className='projects-grid'>
-                {this.state.projects.map((project, index) => {
-                  return (
-                    <a className={`project ${project.classname}`} href={project.url} target='_blank' key={index} onClick={() => this.visited(project.title)}>
 
-                      <div className='description'>
-                        <h1>{project.title}</h1>
-                        <p>{project.description}</p>
-                        <h3 href={project.url} target='_blank'>Check it out!</h3>
-                      </div>
-                      <div className='stats'>
-                        {`Link clicked ${this.state.clicks.length > 0 ? this.state.clicks.filter(item => item[0] == project.title)[0][1] : null} times since 2/11/19`}
-                      </div>
-                    </a>
-                  )
-                })}
-              </div>
-              <div className='github-link'>
-                <h2 >Want to see the code? Go to my github by clicking here {width > 700 ? <i className="far fa-hand-point-right"></i>: <i className="far fa-hand-point-down"></i>}</h2>
-                <a href='http://www.github.com/ryndh/' target='_blank'><i className="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div className='tools-wrapper'>
-              <h1 className='tools-heading'>A Few Tools I Use</h1>
-              <div className='tools-grid'>
-                {this.state.tools.map((tool, index) => {
-                  return (
-                    <div className='tool' key={index}>
-                      <div className='title'>
-                      <h1 className='h-expand'>{tool.title}</h1>
-                      </div>
-
-                      <div className={`scale-tool ${tool.class}`}></div>
-                      
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-            <div className='contact-wrapper' id='contact'>
-              <h1 className='contact-heading'>Get In Touch</h1>
-              <div className='contact-grid'>
-                <div className='contact'>
-                  <h3>I'm always open to new ideas or opportunities! <br /> Send me a message on LinkedIn and let's talk!</h3>
-                  <a href='https://www.linkedin.com/in/ryan-hull-3b4806b9/' target='_blank' className='linkedin-link'>
-                  <div className='linkedin'></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='footer-wrapper'>
-              <div className='footer'>
-                &copy; {currentTime.getFullYear()}  &#124; Ryan
-                </div>
-            </div>
+  return (
+    <div className='app'>
+      <div className='navbar'>
+        <a onClick={() => click()} name='home' className='link' >Home</a>
+        <a onClick={() => click()} name='proj' className='link' >Projects</a>
+        <a onClick={() => click()} name='contact' className='link' >Contact</a>
+      </div>
+      <div className='main-body'>
+        <div className='main-body-content'>
+          <div className='top' style={width < 700 ? sizePhone : null} style={size}>
+            <p className='ryan'><span>Ryan Hull</span></p>
+            <p className='dev'><span>Full Stack Developer</span></p>
           </div>
+          {Projects()}
+          {Tools()}
+          {Contact()}
+          {Footer()}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

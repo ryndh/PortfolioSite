@@ -63,27 +63,27 @@
         .main-body-content {
             .top {
                 position: relative;
+                display: grid;
+                justify-content: right;
+                align-content: center;
+                padding-right: 50px;
                 background-image: url(../../static/assets/macbook.jpg);
                 background-repeat: no-repeat;
                 background-position: center;
                 height: 700px;
                 margin-bottom: 150px;
                 @include phone {
-                    height: 300px;
-                    display: flex;
-                    flex-direction: column;
                     justify-content: center;
-
+                    padding-right: 0px;
+                    height: 300px;
                 }
                 .ryan {
-                    position: absolute;
-                    right: 120px;
-                    top: 27%;
                     font-size: 4rem;
                     overflow: hidden;
                     color: $top-words;
                     @include phone {
-                        top: 2%;
+                       text-align: center;
+
                     }
                     span {
                         opacity: 0;
@@ -93,14 +93,9 @@
                 }
                 .dev {
                     overflow: hidden;
-                    position: absolute;
-                    right: 120px;
-                    top: 45%;
                     font-size: 4rem;
                     color: $top-words;
                     @include phone {
-                        right: 0;
-                        top: 22%;
                     }
                     span {
                         opacity: 0;

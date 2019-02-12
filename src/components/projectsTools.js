@@ -1,4 +1,4 @@
-export const projectsTools = {
+export const portfolioObj = {
     projects: [
       {
         'title': 'Movie Micro Service',
