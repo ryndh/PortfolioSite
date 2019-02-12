@@ -98,7 +98,7 @@ export default class Home extends Component {
         break
       case 'contact':
         window.scrollTo({
-          top: window.innerWidth > 700 ? 2300 : 2700,
+          top: window.innerWidth > 700 ? 2450 : 2700,
           behavior: "smooth",
         })
         break
