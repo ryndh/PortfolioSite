@@ -9,11 +9,13 @@ export default function Home() {
 
   const [offset, setOffset] = useState(0)
   const todaysDate = new Date
+  const constant = 1
   let size = { backgroundSize: `${100 + (offset / 20)}%` }
   let sizePhone = { backgroundSize: `${120 + (offset / 20)}%` }
   let width = window.innerWidth;
-
+  console.log('rendering')
   useEffect(() => {
+    console.log('effect')
     fetch('https://portfoliopython.herokuapp.com/visitors', {
             method: 'POST',
             headers: {
@@ -21,15 +23,17 @@ export default function Home() {
             },
             body: JSON.stringify({ date: todaysDate.toString()})
           }).then(response => { return response.json() })     
-  })
+  }, [constant])
 
   useEffect(() => {
+    console.log('listener')
     window.addEventListener('scroll', scrolled())
 
     return function cleanup() {
       window.removeEventListener('scroll', scrolled())
+      console.log('removed listener')
     }
-  })
+  }, [constant])
 
   const scrolled = () => {
     const nav = document.querySelector('.navbar');
@@ -38,7 +42,7 @@ export default function Home() {
     const navScrollAt = 0
     const toolScroolAt = window.innerWidth > 700 ? 1650 : 1900;
 
-    setOffset({ offset: window.pageYOffset })
+    setOffset(window.pageYOffset)
 
     if (window.pageYOffset > navScrollAt) {
       nav.classList.add('scrolled')
@@ -62,16 +66,6 @@ export default function Home() {
       })
     }
 
-  }
-
-  const visited = (title) => {
-    fetch('https://portfoliopython.herokuapp.com/clicks', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ site: title })
-    }).then(response => { return response.json() })
   }
 
   const click = (e) => {

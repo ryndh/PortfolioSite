@@ -15,11 +15,20 @@ export function Projects() {
         })
             .then(response => { return response.json() })
             .then(responseData => { return responseData })
-            .then(data => { setClicks({ clicks: data }) })
+            .then(data => { setClicks(data) })
             .catch(err => console.log("Fetch Error", err))
 
-    })
+    }, [projects])
 
+    const visited = (title) => {
+        fetch('https://portfoliopython.herokuapp.com/clicks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ site: title })
+        }).then(response => { return response.json() })
+    }
 
     return (
         <div className='projects-wrapper' id='proj'>
@@ -27,7 +36,7 @@ export function Projects() {
             <div className='projects-grid'>
                 {projects.map((project, index) => {
                     return (
-                        <a className={`project ${project.classname}`} href={project.url} target='_blank' key={index} onClick={() => this.visited(project.title)}>
+                        <a className={`project ${project.classname}`} href={project.url} target='_blank' key={index} onClick={() => visited(project.title)}>
 
                             <div className='description'>
                                 <h1>{project.title}</h1>
@@ -35,7 +44,7 @@ export function Projects() {
                                 <h3 href={project.url} target='_blank'>Click to visit!</h3>
                             </div>
                             <div className='stats'>
-                                {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : null} times since 2/11/19`}
+                                {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/11/19`}
                             </div>
                         </a>
                     )
