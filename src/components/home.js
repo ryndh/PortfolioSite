@@ -13,27 +13,18 @@ export default function Home() {
   let size = { backgroundSize: `${100 + (offset / 20)}%` }
   let sizePhone = { backgroundSize: `${120 + (offset / 20)}%` }
   let width = window.innerWidth;
-  console.log('rendering')
+
   useEffect(() => {
     console.log('effect')
     fetch('https://portfoliopython.herokuapp.com/visitors', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ date: todaysDate.toString()})
-          }).then(response => { return response.json() })     
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ date: todaysDate.toString() })
+    }).then(response => { return response.json() })
   }, [constant])
 
-  useEffect(() => {
-    console.log('listener')
-    window.addEventListener('scroll', scrolled())
-
-    return function cleanup() {
-      window.removeEventListener('scroll', scrolled())
-      console.log('removed listener')
-    }
-  }, [constant])
 
   const scrolled = () => {
     const nav = document.querySelector('.navbar');
@@ -67,6 +58,16 @@ export default function Home() {
     }
 
   }
+
+  useEffect(() => {
+    console.log('listener')
+    window.addEventListener('scroll', () => scrolled())
+
+    return function cleanup() {
+      window.removeEventListener('scroll',() => scrolled())
+      console.log('removed listener')
+    }
+  }, [constant])
 
   const click = (e) => {
     switch (e.target.name) {
