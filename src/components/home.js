@@ -10,9 +10,11 @@ export default function Home() {
   const [offset, setOffset] = useState(0)
   const todaysDate = new Date
   const constant = 1
-  let size = { backgroundSize: `${100 + (offset / 20)}%` }
-  let sizePhone = { backgroundSize: `${120 + (offset / 20)}%` }
+  let size = { backgroundSize: `${100 + (window.pageYOffset / 20)}%` }
+  let sizePhone = { backgroundSize: `${120 + (window.pageYOffset / 20)}%` }
   let width = window.innerWidth;
+
+  let [add, setAdd] = useState('')
 
   useEffect(() => {
     fetch('https://portfoliopython.herokuapp.com/visitors', {
@@ -20,10 +22,10 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ date: todaysDate.toString() })
+      body: JSON.stringify({ date: todaysDate.toLocaleString() })
     }).then(response => { return response.json() })
+      .then(responseData => { return setAdd(responseData) })
   }, [constant])
-
 
   const scrolled = () => {
     const nav = document.querySelector('.navbar');
@@ -32,7 +34,6 @@ export default function Home() {
     const navScrollAt = 0
     const toolScroolAt = window.innerWidth > 700 ? 1650 : 1900;
 
-    setOffset(window.pageYOffset)
 
     if (window.pageYOffset > navScrollAt) {
       nav.classList.add('scrolled')
@@ -63,7 +64,7 @@ export default function Home() {
     window.addEventListener('scroll', () => scrolled())
 
     return function cleanup() {
-      window.removeEventListener('scroll',() => scrolled())
+      window.removeEventListener('scroll', () => scrolled())
       console.log('removed listener')
     }
   }, [constant])

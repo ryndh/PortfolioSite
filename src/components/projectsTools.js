@@ -61,6 +61,4 @@ export const portfolioObj = {
         'class': 'js',
       },
     ],
-    offset: 0,
-    clicks: [],
   }
