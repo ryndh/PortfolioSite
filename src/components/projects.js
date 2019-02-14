@@ -52,7 +52,7 @@ export function Projects() {
             </div>
             <div className='github-link'>
                 <h2 >Want to see the code? Go to my github by clicking here {window.innerWidth > 700 ? <i className="far fa-hand-point-right"></i> : <i className="far fa-hand-point-down"></i>}</h2>
-                <a href='http://www.github.com/ryndh/' target='_blank'><i className="fab fa-github"></i></a>
+                <a href='http://www.github.com/ryndh/' target='_blank' onClick={() => visited('Github')}><i className="fab fa-github"></i></a>
             </div>
         </div>
     );
