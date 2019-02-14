@@ -32,7 +32,7 @@ export function Projects() {
 
     return (
         <div className='projects-wrapper' id='proj'>
-            <h1 className='projects-heading'>Projects</h1>
+            <h1 className='projects-heading'>Project Links</h1>
             <div className='projects-grid'>
                 {projects.map((project, index) => {
                     return (

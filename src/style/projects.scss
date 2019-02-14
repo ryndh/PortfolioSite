@@ -1,3 +1,8 @@
+@mixin project {
+    background-size: cover;
+    background-position: center;
+}
+
 .projects-wrapper {
     text-align: center;
     margin-top: 30px;
@@ -97,23 +102,19 @@
         }
         .project-diner {
             background-image: url(../../static/assets/diner.png);
-            background-size: cover;
-            background-position: center;
+            @include project
         }
         .project-calc {
             background-image: url(../../static/assets/calc.png);
-            background-size: cover;
-            background-position: center;
+            @include project 
         }
         .project-mad {
             background-image: url(../../static/assets/mad.png);
-            background-size: cover;
-            background-position: center;
+            @include project
         }
         .project-movie {
             background-image: url(../../static/assets/movie.png);
-            background-size: cover;
-            background-position: center;
+            @include project           
         }
     }
     .github-link {
