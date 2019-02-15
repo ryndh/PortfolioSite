@@ -11,12 +11,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    button {
+        border-style: none;
+        border-radius: 4px;
+        background-color: $stats-button-bg;
+        &:active {
+            color: black;
+        }
+        @include phone {
+            width: 20%;
+        }
+    }
     .projects-heading {
         width: 80%;
         padding-top: 30px;
         border-top: 1px solid $proj-top-border;
         font-size: $section-heading-font-size;
         margin-bottom: 40px;
+        
     }
     .projects-grid {
         margin-top: 20px;
@@ -83,22 +95,24 @@
                     opacity: 1;
                     color: $hover-text-color;
                 }
-                .stats {
-                    opacity: 1;
-                }
             }
             &:active {
                 transition: .5s ease;
                 transform: scale(.98);
             }
+            .statsHidden {
+                opacity: 0;
+                visibility: hidden;
+            }
             .stats {
                 transition: 1s ease;
-                opacity: 0;
                 position: absolute;
                 bottom: -40px;
                 color: $stats-color;
                 align-self: center;
+                font-size: 1.2rem;
             }
+            
         }
         .project-diner {
             background-image: url(../../static/assets/diner.png);
@@ -136,6 +150,7 @@
         }
         @include phone {
             flex-direction: column;
+            padding: 0px 10px;
             .fab {
                 margin-top: 40px;
             }
