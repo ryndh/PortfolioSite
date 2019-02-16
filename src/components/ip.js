@@ -26,11 +26,6 @@ export function Ip() {
                 <div className={IPvisibility ? 'add' : 'hide-add'}>{add[0] == '' ? 'Not sure yet...' : add[0]}</div>
                 <button onClick={() => handleShow()}>{IPvisibility ? 'Hide' : 'Show'}</button>
             </div>
-            <div className='visits'>
-                <div>Your visit total: <span>{add[0] == '' ? 'Not sure yet...' : add[1]}</span></div>
-                <p>(since 2/12/19)</p> 
-                <p>(Every page refresh counts toward visit total)</p>
-            </div>
         </div>
     )
 }

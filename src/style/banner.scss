@@ -34,6 +34,10 @@
         justify-content: space-around;
         padding: 0px 40px;
         transition: 1s ease;
+        @include phone {
+            justify-content: center;
+            padding: 0;
+        }
         .link {
             transition: 1s ease;
             font-size: 1.5rem;
@@ -79,6 +83,7 @@
                     justify-content: center;
                     padding-right: 0px;
                     height: 300px;
+                    background-size: cover;
                 }
                 .ryan {
                     font-size: 4rem;
@@ -86,6 +91,7 @@
                     color: $top-words;
                     @include phone {
                        text-align: center;
+                       font-size: 3rem;
                     }
                     span {
                         opacity: 0;
@@ -99,6 +105,7 @@
                     color: $top-words;
                     @include phone {
                        text-align: center;
+                       font-size: 3rem;
                     }
                     span {
                         opacity: 0;
@@ -113,6 +120,9 @@
                     align-items: flex-end;
                     animation: buttons 1.5s ease 2s 1 forwards;
                     opacity: 0;
+                    @include phone {
+                     align-items: center;       
+                    }
                     button {
                         transition: .5s ease;
                         width: 30%;

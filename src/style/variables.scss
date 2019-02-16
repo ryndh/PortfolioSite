@@ -4,11 +4,11 @@
         @content;
     }
 }
-@mixin phone2 {
-    @media (width: minmax(550px, 880px)) {
-        @content;
-    }
-}
+// @mixin phone2 {
+//     @media (width: minmax(550px, 880px)) {
+//         @content;
+//     }
+// }
 
 @mixin bg-icon {
     background-size: contain;
@@ -28,6 +28,7 @@
     @include phone {
         width: 85%;
         height: 80%;
+        font-size: .9rem;
     }
 }
 
