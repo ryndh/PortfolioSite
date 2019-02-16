@@ -1,0 +1,108 @@
+
+.about-you-wrap {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(128, 128, 128, 0.63);
+    z-index: 3;
+    .about-you {
+        position: relative;
+        background-color: white;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: [left-s] 1fr [left-e right-s] 1fr [right-e];
+        grid-template-rows: [header-s] .5fr [header-e body-s] 1fr [body-e];
+        @include modal;
+        @include phone {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .about-you-heading {
+            grid-column: left-s/right-e;
+            grid-row: header-s/header-e;
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+        .ip-wrap {
+            grid-column: right-s/right-e;
+            grid-row: body-s/body-e;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .hide-add {
+                margin: 10px 0px;
+                visibility: hidden;
+            }
+            .ip-add {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .add {
+                    margin: 10px 0px;
+                }
+                button {
+                    @include button;
+                    width: 40%;
+                }
+            }
+            .visits {
+                text-align: center;
+            }
+        }
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+        }
+        .weather-wrap {
+            grid-column: left-s/left-e;
+            grid-row: body-s/body-e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .weather {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 15px;
+                .weather-heading {
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+                .input-field {
+                    display: flex;
+                    justify-content: space-around;
+                }
+                h1 {
+                    text-align: center;
+                }
+                button {
+                    @include button;
+                    margin-left: 20px;
+                }
+                input {
+                    border-style: none;
+                    outline: none;
+                    border-bottom: 1px solid $button-color;
+                }
+            }
+            .weather-data {
+                align-self: flex-start;
+            }
+        }
+    }
+}
+.hide-about-you-wrap {
+    display: none;
+}

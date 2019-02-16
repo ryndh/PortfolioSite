@@ -19,6 +19,26 @@
     align-self: center;
 }
 
+@mixin modal {
+    padding: 30px;
+    width: 60%;
+    height: 50%;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    @include phone {
+        width: 85%;
+        height: 80%;
+    }
+}
+
+@mixin button {
+    cursor: pointer;
+    background-color: $button-color;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px 0px #232b39a1;
+}
 
 //fonts
 $section-heading-font-size: 3.5rem;
@@ -34,6 +54,7 @@ $nav-box-shadow: 0px 0px 3px 0px white;
 //Heading Section
 $word-animated: #050608;
 $top-words: #050608;
+$button-color: #28a745;
 
 //Projects Section
 $project-link: #00d3e4;

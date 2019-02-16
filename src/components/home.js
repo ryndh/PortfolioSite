@@ -9,21 +9,8 @@ import { Banner } from './banner';
 
 export default function Home() {
 
-  const todaysDate = new Date
   const constant = 1
-
-  let [add, setAdd] = useState('')
-
-  useEffect(() => {
-    fetch('https://portfoliopython.herokuapp.com/visitors', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ date: todaysDate.toLocaleString() })
-    }).then(response => { return response.json() })
-      .then(responseData => { return setAdd(responseData) })
-  }, [constant])
+  const [youModal, setYouModal] = useState(false)
 
   const scrolled = () => {
     const nav = document.querySelector('.navbar');

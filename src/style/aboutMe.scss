@@ -1,0 +1,49 @@
+
+.about-me-wrap {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(128, 128, 128, 0.63);
+    z-index: 3;
+    .about-me {
+        position: relative;
+        background-color: white;
+        display: grid;
+        grid-gap: 0px 40px;
+        align-items: center;
+        grid-template-columns: 175px auto;
+        grid-template-rows: 1fr .5fr;
+
+        @include modal;
+        @include phone {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .ryan-pic {
+            background-image: url('../../static/assets/ryan.jpg');
+            background-size: cover;
+            background-position-y: 34%;
+            border-radius: 50%;
+            height: 175px;
+            width: 175px;
+        }
+        .close {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+        }
+        .site-about-heading {
+            text-align: center;
+        }
+    }
+}
+.hide-about-me-wrap {
+    display: none;
+}

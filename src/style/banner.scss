@@ -8,11 +8,13 @@
         transform: translateY(0%);
     }
 }
-@keyframes slideOver {
+@keyframes buttons {
     0% {
-        transform: translateX(-100%);
+        opacity: 1;
+        transform: translateX(100%);
     }
     100% {
+        opacity: 1;
         transform: translateX(0%);
     }
 }
@@ -20,7 +22,7 @@
 .app {
     position: relative;
     .navbar {
-        z-index: 10;
+        z-index: 2;
         height: 70px;
         background-color: $nav-scroll;
         background-image: $nav-bg;
@@ -62,7 +64,7 @@
         margin-top: 70px;
         .main-body-content {
             .top {
-                position: relative;
+                // position: relative;
                 display: grid;
                 justify-content: right;
                 align-content: center;
@@ -103,6 +105,25 @@
                         display: inline-block;
                         animation: slideUp 2s ease 1s 1 forwards;                        
                     }
+                }
+                .button-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                    animation: buttons 1.5s ease 2s 1 forwards;
+                    opacity: 0;
+                    button {
+                        transition: .5s ease;
+                        width: 30%;
+                        margin-bottom: 25px;
+                        padding: 5px 10px;
+                        @include button;
+                        &:hover {
+                            transform: translateX(5px) scale(1.02);
+                        }
+                    }
+                    
                 }
             }
         }

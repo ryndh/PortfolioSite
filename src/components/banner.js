@@ -1,14 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Weather } from './weather';
+import { Ip } from './ip';
 
 export function Banner() {
-    // let size = { backgroundSize: `${100 + (window.pageYOffset / 20)}%` }
-    // let sizePhone = { backgroundSize: `${120 + (window.pageYOffset / 20)}%` }
-    // let width = window.innerWidth;
+    const [meModal, setMeModal] = useState(false)
+    const [youModal, setYouModal] = useState(false)
+
+    const clickHandleMe = (title) => {
+        setMeModal(true)
+        fetch('https://portfoliopython.herokuapp.com/clicks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ site: title })
+        }).then(response => { return response.json() })
+    }
+    
+    const clickHandleYou = (title) => {
+        setYouModal(true)
+        fetch('https://portfoliopython.herokuapp.com/clicks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ site: title })
+        }).then(response => { return response.json() })
+    }
 
     return (
         <div className='top'>
             <p className='ryan'><span>Ryan Hull</span></p>
             <p className='dev'><span>Full Stack Developer</span></p>
+            <div className='button-wrap'>
+                <button onClick={() => clickHandleMe('About Me')} className='banner-button'>About Me</button>
+                <button onClick={() => clickHandleYou('About You')} className='banner-button'>About You</button>
+            </div>
+            <div className={youModal ? 'about-you-wrap' : 'hide-about-you-wrap'} >
+                <div className='about-you'>
+                    <div className='about-you-heading'>
+                        <h1>Hello There!</h1>
+                        <p>Ok, spoiler alert, I don't really know that much about you. Just that you're on my site really. Feel free to check out the weather around you, and see if I got your IP Address right!</p>
+                    </div>
+                    {Weather()}
+                    {Ip()}
+                    <div className='close' onClick={() => setYouModal(false)}> Close X</div>
+                </div>
+            </div>
+            <div className={meModal ? 'about-me-wrap' : 'hide-about-me-wrap'}>
+                <div className='about-me'>
+                    <div className='ryan-pic'>
+                    </div>
+                    <div className='ryan-about'>
+                        <p>I love the challenges that programming provides me on a daily basis, and I enjoy learning in general! When I'm not coding, I enjoy spending time with my family, watching basketball, or reading something historical. </p>
+                    </div>
+                    <div className='site-about-heading'>
+                        <h2>This Site:</h2>
+                    </div>
+                    <div className='site-about'>
+                        <p>Front end is done in React, recently refactored to include Hooks. Back-end work is mainly done with Python and Flask, with a PostgreSQL database.</p>
+                    </div>
+                    <div className='close' onClick={() => setMeModal(false)}>Close X</div>
+                </div>
+            </div>
         </div>
     )
 }
