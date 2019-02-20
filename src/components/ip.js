@@ -1,29 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-export function Ip() {
+export const Ip = (props) => {
 
-    const todaysDate = new Date
-    const [add, setAdd] = useState('')
     const [IPvisibility, setIPvisibility] = useState(false)
-    const unchanged = 1
-
-    useEffect(() => {
-        fetch('https://portfoliopython.herokuapp.com/visitors', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ date: todaysDate.toLocaleString() })
-        }).then(response => { return response.json() })
-            .then(responseData => { return setAdd(responseData) })
-    }, [unchanged])
-
+    
     const handleShow = () => setIPvisibility(!IPvisibility)
     return (
         <div className='ip-wrap'>
             <div className='ip-add'>
                 <div>Your IP Address</div>
-                <div className={IPvisibility ? 'add' : 'hide-add'}>{add[0] == '' ? 'Not sure yet...' : add[0]}</div>
+                <div className={IPvisibility ? 'add' : 'hide-add'}>{props.address[0] == '' ? 'Not sure yet...' : props.address[0]}</div>
                 <button onClick={() => handleShow()}>{IPvisibility ? 'Hide' : 'Show'}</button>
             </div>
         </div>

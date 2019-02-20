@@ -1,10 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Weather } from './weather';
 import { Ip } from './ip';
 
 export function Banner() {
     const [meModal, setMeModal] = useState(false)
     const [youModal, setYouModal] = useState(false)
+    const todaysDate = new Date().toLocaleDateString()
+    const [add, setAdd] = useState('')
+
+
+    useEffect(() => {
+        fetch('https://portfoliopython.herokuapp.com/visitors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ date: todaysDate })
+            }).then(response => { return response.json() })
+                .then(responseData => { return setAdd(responseData) })
+    }, [todaysDate])
+
+    useEffect(() => {
+        setTimeout(ipChecker, 15000)
+    }, [todaysDate])
+
+    const ipChecker = () => {
+        if (add[0] == '') {
+            fetch('https://portfoliopython.herokuapp.com/visitors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ date: todaysDate })
+            }).then(response => { return response.json() })
+                .then(responseData => { return setAdd(responseData) })
+        }
+    }
 
     const clickHandleMe = (title) => {
         setMeModal(true)
@@ -13,20 +44,31 @@ export function Banner() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ site: title })
+            body: JSON.stringify({
+                site: title,
+                date: todaysDate
+            })
         }).then(response => { return response.json() })
+            .then(responseData => console.log(responseData))
     }
-    
+
     const clickHandleYou = (title) => {
+        ipChecker()
         setYouModal(true)
         fetch('https://portfoliopython.herokuapp.com/clicks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ site: title })
+            body: JSON.stringify({ 
+                site: title,
+                date: todaysDate
+             })
         }).then(response => { return response.json() })
     }
+
+
+
 
     return (
         <div className='top'>
@@ -43,7 +85,7 @@ export function Banner() {
                         <p>Ok, spoiler alert, I don't really know that much about you. Just that you're on my site really. Feel free to check out the weather around you, and see if I got your IP Address right!</p>
                     </div>
                     {Weather()}
-                    {Ip()}
+                    <Ip address={add} />
                     <div className='close' onClick={() => setYouModal(false)}> Close X</div>
                 </div>
             </div>

@@ -9,8 +9,7 @@ import { Banner } from './banner';
 
 export default function Home() {
 
-  const constant = 1
-  const [youModal, setYouModal] = useState(false)
+  const constant = new Date().toLocaleDateString()
 
   const scrolled = () => {
     const nav = document.querySelector('.navbar');
