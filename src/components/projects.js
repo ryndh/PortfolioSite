@@ -34,10 +34,10 @@ export function Projects() {
     return (
         <div className='projects-wrapper' id='proj'>
             <h1 className='projects-heading'>Project Links</h1>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     setShowStats(!showStats)
                     console.log(showStats )
-                    }}>{showStats ? 'Hide Link Stats' : 'Show Link Stats'}</button>
+                    }}>{showStats ? 'Hide Link Stats' : 'Show Link Stats'}</button> */}
             <div className='projects-grid'>
                 {projects.map((project, index) => {
                     return (
@@ -49,7 +49,7 @@ export function Projects() {
                                 <h3 href={project.url} target='_blank'>Click to visit!</h3>
                             </div>
                             <div className={ showStats ? 'stats' : ' stats statsHidden'}>
-                                {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/12/19`}
+                                {/* {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/12/19`} */}
                             </div>
                         </a>
                     )
