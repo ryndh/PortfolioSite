@@ -23,6 +23,9 @@
     padding: 30px;
     width: 60%;
     height: 50%;
+    @media (max-height: 720px) {
+        height: 80%;
+    }
     border-radius: 7px;
     font-size: 1.2rem;
     @include phone {
