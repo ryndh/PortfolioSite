@@ -67,9 +67,6 @@ export function Banner() {
         }).then(response => { return response.json() })
     }
 
-
-
-
     return (
         <div className='top'>
             <p className='ryan'><span>Ryan Hull</span></p>

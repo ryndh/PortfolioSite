@@ -5,6 +5,7 @@ export function Projects() {
     const [projects, setProjects] = useState(portfolioObj.projects);
     const [clicks, setClicks] = useState([])
     const [showStats, setShowStats] = useState(false)
+    const currentDate = new Date().toLocaleDateString()
 
     useEffect(() => {
         fetch('https://portfoliopython.herokuapp.com/click_stats', {
@@ -27,14 +28,17 @@ export function Projects() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ site: title })
+            body: JSON.stringify({
+                site: title,
+                date: currentDate
+            })
         }).then(response => { return response.json() })
     }
 
     return (
         <div className='projects-wrapper' id='proj'>
             <h1 className='projects-heading'>Project Links</h1>
-                {/* <button onClick={() => {
+            {/* <button onClick={() => {
                     setShowStats(!showStats)
                     console.log(showStats )
                     }}>{showStats ? 'Hide Link Stats' : 'Show Link Stats'}</button> */}
@@ -48,7 +52,7 @@ export function Projects() {
                                 <p>{project.description}</p>
                                 <h3 href={project.url} target='_blank'>Click to visit!</h3>
                             </div>
-                            <div className={ showStats ? 'stats' : ' stats statsHidden'}>
+                            <div className={showStats ? 'stats' : ' stats statsHidden'}>
                                 {/* {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/12/19`} */}
                             </div>
                         </a>
