@@ -1,69 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { portfolioObj } from './projectsTools';
-import { Projects } from './projects';
-import { Tools } from './tools';
-import { Contact } from './contact';
-import { Footer } from './footer';
-import { Navbar } from './navbar';
-import { Banner } from './banner';
+import React, { useEffect, useState } from "react";
+import { portfolioObj } from "./projectsTools";
+import { Projects } from "./projects";
+import Tools from "./tools";
+import Contact from "./contact";
+import Footer from "./footer";
+import Navbar from "./navbar";
+import Banner from "./banner";
 
 export default function Home() {
-
-  const constant = new Date().toLocaleDateString()
+  const constant = new Date().toLocaleDateString();
 
   const scrolled = () => {
-    const nav = document.querySelector('.navbar');
-    const tool = document.querySelectorAll('.scale-tool')
-    const lines = document.querySelectorAll('.h-expand')
-    const navScrollAt = 0
+    const nav = document.querySelector(".navbar");
+    const tool = document.querySelectorAll(".scale-tool");
+    const lines = document.querySelectorAll(".h-expand");
+    const navScrollAt = 0;
     const toolScroolAt = window.innerWidth > 700 ? 1650 : 1900;
 
-
     if (window.pageYOffset > navScrollAt) {
-      nav.classList.add('scrolled')
+      nav.classList.add("scrolled");
     } else {
-      nav.classList.remove('scrolled')
+      nav.classList.remove("scrolled");
     }
 
     if (window.pageYOffset > toolScroolAt) {
-      tool.forEach((item) => {
-        item.classList.add('bigger')
-      })
-      lines.forEach((line) => {
-        line.classList.add('line')
-      })
+      tool.forEach(item => {
+        item.classList.add("bigger");
+      });
+      lines.forEach(line => {
+        line.classList.add("line");
+      });
     } else {
-      tool.forEach((item) => {
-        item.classList.remove('bigger')
-      })
-      lines.forEach((line) => {
-        line.classList.remove('line')
-      })
+      tool.forEach(item => {
+        item.classList.remove("bigger");
+      });
+      lines.forEach(line => {
+        line.classList.remove("line");
+      });
     }
-
-  }
+  };
 
   useEffect(() => {
-    console.log('listener')
-    window.addEventListener('scroll', () => scrolled())
+    console.log("listener");
+    window.addEventListener("scroll", () => scrolled());
 
     return function cleanup() {
-      window.removeEventListener('scroll', () => scrolled())
-      console.log('removed listener')
-    }
-  }, [constant])
-
+      window.removeEventListener("scroll", () => scrolled());
+      console.log("removed listener");
+    };
+  }, [constant]);
 
   return (
-    <div className='app'>
+    <div className="app">
       {Navbar()}
-      <div className='main-body'>
-        <div className='main-body-content'>
-          {Banner()}
-          {Projects()}
-          {Tools()}
-          {Contact()}
-          {Footer()}
+      <div className="main-body">
+        <div className="main-body-content">
+          <Banner />
+          <Projects />
+          <Tools />
+          <Contact />
+          <Footer />
         </div>
       </div>
     </div>

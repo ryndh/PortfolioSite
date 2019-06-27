@@ -12,10 +12,11 @@
     .about-you {
         position: relative;
         background-color: white;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        grid-template-columns: [left-s] 1fr [left-e right-s] 1fr [right-e];
-        grid-template-rows: [header-s] .5fr [header-e body-s] 1fr [body-e];
+        // grid-template-columns: [left-s] 1fr [left-e right-s] 1fr [right-e];
+        // grid-template-rows: [header-s] .5fr [header-e body-s] 1fr [body-e];
         @include modal;
         @include phone {
             display: flex;
