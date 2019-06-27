@@ -100,7 +100,7 @@ export default function Banner() {
           onClick={() => clickHandleYou("About You")}
           className="banner-button"
         >
-          About You
+          Your Weather
         </button>
       </div>
       <div className={youModal ? "about-you-wrap" : "hide-about-you-wrap"}>
