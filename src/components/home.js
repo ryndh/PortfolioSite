@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { portfolioObj } from "./projectsTools";
-import { Projects } from "./projects";
+import React, { useEffect } from "react";
+import Projects from "./projects";
 import Tools from "./tools";
 import Contact from "./contact";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import Banner from "./banner";
+import { css } from "@emotion/core";
 
-export default function Home() {
+const appStyle = css`
+  position: relative;
+`;
+const mainBody = css`
+  margin-top: 70px;
+`;
+export default function Home () {
   const constant = new Date().toLocaleDateString();
 
   const scrolled = () => {
@@ -44,17 +50,17 @@ export default function Home() {
     console.log("listener");
     window.addEventListener("scroll", () => scrolled());
 
-    return function cleanup() {
+    return function cleanup () {
       window.removeEventListener("scroll", () => scrolled());
       console.log("removed listener");
     };
   }, [constant]);
 
   return (
-    <div className="app">
-      {Navbar()}
-      <div className="main-body">
-        <div className="main-body-content">
+    <div css={appStyle}>
+      <Navbar />
+      <div css={mainBody}>
+        <div>
           <Banner />
           <Projects />
           <Tools />
