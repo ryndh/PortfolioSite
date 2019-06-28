@@ -126,6 +126,9 @@ export default function Projects () {
     border-radius: 9px;
     opacity: 0;
     transition: 0.5s ease;
+    &:hover{
+      opacity: 1;
+    }
   `;
   return (
     <div css={projWrapper}>

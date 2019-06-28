@@ -24,7 +24,7 @@ const linkStyle = css`
 `;
 
 const navTopNames = ["Home", "Projects", "Contact"];
-export default function Navbar () {
+export default function Navbar() {
   const values = {
     Home: 0,
     Projects: 800,
@@ -38,11 +38,14 @@ export default function Navbar () {
   };
   return (
     <div css={navStyle}>
-      {navTopNames.map(name =>
-        (<a onClick={e => click(e)} name={name} css={linkStyle}>
-          {name}
-        </a>)
-      )}
+      {navTopNames.map((name, i) => {
+        const key = `${name}${i}`;
+        return (
+          <a onClick={e => click(e)} name={name} css={linkStyle} key={key}>
+            {name}
+          </a>
+        );
+      })}
     </div>
   );
 }

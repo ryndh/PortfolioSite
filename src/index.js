@@ -1,12 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Home from "../src/components/home";
+import { Global, css } from "@emotion/core";
 
 // import './style/main.scss';
-
+const bodyStyles = css`
+  body {
+    margin: 0px;
+    font-family: "Montserrat";
+    font-size: 70%;
+  }
+`;
 function App () {
   return (
-    <Home />
+    <>
+      <Global styles={bodyStyles} />
+      <Home />
+    </>
   );
 }
 
