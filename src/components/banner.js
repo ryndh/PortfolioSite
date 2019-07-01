@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./weather";
 import { css } from "@emotion/core";
-import macbook from "../../static/assets/macbook.jpg";
+import profileImg from "../../static/assets/profile.jpg";
 
 // import Ip from "./ip";
 
@@ -84,6 +84,7 @@ export default function Banner () {
     // });
   };
   const someStyle = css`
+    position: relative;
     display: grid;
     justify-content: right;
     align-content: center;
@@ -99,6 +100,7 @@ export default function Banner () {
     font-size: 4rem;
     overflow: hidden;
     color: #050608;
+    margin: 20px;
   `;
   const buttonWrap = css`
     display: flex;
@@ -149,20 +151,19 @@ export default function Banner () {
     font-size: 1.2rem;
   `;
   const aboutYou = css`
-    position: relative;
+    position: absolute;
+    top: 25%;
+    left: 25%;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 30px;
-    width: 60%;
-    height: 50%;
+    width: 40%;
+    height: 40%;
     border-radius: 7px;
-    font-size: 1.2rem;
-  `;
-  const aboutYouHeading = css`
-    grid-column: left-s/right-e;
-    grid-row: header-s/header-e;
+    font-size: 1rem;
   `;
   const closeStyle = css`
     position: absolute;
@@ -171,7 +172,7 @@ export default function Banner () {
     padding: 5px;
   `;
   const ryanPic = css`
-    background-image: url(static/assets/ryan.jpg);
+    background-image: url(${profileImg});
     background-size: cover;
     background-position-y: 34%;
     border-radius: 50%;
@@ -197,17 +198,12 @@ export default function Banner () {
           Your Weather
         </button>
       </div>
-      <div css={youModal ? aboutMe : hideAboutMe}>
-        <div css={aboutYou}>
-          <div css={aboutYouHeading}>
-            <h1>Hello There!</h1>
-          </div>
-          <Weather />
-          {/* <Ip address={add} /> */}
-          <div css={closeStyle} onClick={() => setYouModal(false)}>
-            {" "}
-            Close X
-          </div>
+      <div css={youModal ? aboutYou : hideAboutMe}>
+        <Weather />
+        {/* <Ip address={add} /> */}
+        <div css={closeStyle} onClick={() => setYouModal(false)}>
+          {" "}
+          Close X
         </div>
       </div>
       <div css={meModal ? aboutMeWrap : hideAboutMe}>
@@ -215,10 +211,10 @@ export default function Banner () {
           <div css={ryanPic} />
           <div>
             <p>
-              I love the challenges that programming provides me on a daily
-              basis, and I enjoy learning in general! When I'm not coding, I
-              enjoy spending time with my family, watching basketball, or
-              reading something historical.{" "}
+              I did not discover the wonderful field of software programming
+              until after college. However I am very glad I did, because I love
+              it!! When I'm not coding, I enjoy spending time with my family,
+              watching basketball, or reading a non-fiction book.{" "}
             </p>
           </div>
           <div css={siteAboutHeading}>
@@ -226,9 +222,9 @@ export default function Banner () {
           </div>
           <div>
             <p>
-              Front end is done in React, recently refactored to include Hooks.
-              Back-end work is mainly done with Python and Flask, with a
-              PostgreSQL database.
+              What you see here is (my personal favorite) React, while there is
+              a little back-end logic in Python and Flask going on behind the
+              scenes. I also use a PostgreSQL database.
             </p>
           </div>
           <div css={closeStyle} onClick={() => setMeModal(false)}>

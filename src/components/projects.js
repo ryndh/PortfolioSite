@@ -75,51 +75,51 @@ export default function Projects () {
   const gitHubLink = css`
     transition: 0.5s ease;
     text-decoration: none;
-    color: $github-link;
+    color: black;
+    font-size: 3rem;
+    margin-left: 15px;
     &:hover {
       transition: 0.5s ease;
       transform: scale(1.1);
     }
   `;
-  const projectStyle = project => (
+  const projectStyle = project =>
     css`
-    position: relative;
-    transition: 1s ease;
-    line-height: 2.5rem;
-    width: 100%;
-    padding: 30px 50px;
-    opacity: 0.8;
-    border-radius: 10px;
+      position: relative;
+      transition: 1s ease;
+      line-height: 2.5rem;
+      width: 100%;
+      /* padding: 30px 50px; */
+      opacity: 0.8;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #00d3e4;
+      font-weight: 700;
+      text-decoration: none;
+      background-image: url(${project.image});
+      background-size: cover;
+      background-position: center;
+      &:hover {
+        opacity: 1;
+        transition: 0.5s ease;
+        transform: scale(1.02);
+      }
+      &:active {
+        transition: 0.5s ease;
+        transform: scale(0.98);
+      }
+    `;
+  const projectDescriptionWrap = css`
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #00d3e4;
-    font-weight: 700;
-    text-decoration: none;
-    position: relative;
-    background-image: url(${project.image});
-    background-size: cover;
-    background-position: center;
-    &:hover {
-      opacity: 1;
-      transition: 0.5s ease;
-      transform: scale(1.02);
-    }
-    &:active {
-      transition: 0.5s ease;
-      transform: scale(0.98);
-    }
-  `
-  );
-  const projectDescription = css`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 55px 40px;
+    /* padding: 55px 40px; */
     align-items: center;
     font-size: 1.3rem;
     color: #050608;
-    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
@@ -128,13 +128,19 @@ export default function Projects () {
     border-radius: 9px;
     opacity: 0;
     transition: 0.5s ease;
-    &:hover{
-      opacity: 1;
+    &:hover {
+      opacity: 0.9;
+      color: white;
     }
+  `;
+
+  const projectDescription = css`
+    height: 100%;
+    padding: 20px 40px;
   `;
   return (
     <div css={projWrapper}>
-      <h1 css={projHeading}>Project Links</h1>
+      <h1 css={projHeading}>Projects</h1>
       {/* <button onClick={() => {
                     setShowStats(!showStats)
                     console.log(showStats )
@@ -149,12 +155,14 @@ export default function Projects () {
               key={index}
               // onClick={() => visited(project.title)}
             >
-              <div css={projectDescription}>
-                <h1>{project.title}</h1>
-                <p>{project.description}</p>
-                <h3 href={project.url} target="_blank">
-                  Click to visit!
-                </h3>
+              <div css={projectDescriptionWrap}>
+                <div css={projectDescription}>
+                  <h1>{project.title}</h1>
+                  <p>{project.description}</p>
+                  <h3 href={project.url} target="_blank">
+                    Click to visit!
+                  </h3>
+                </div>
               </div>
             </a>
           );
@@ -162,12 +170,14 @@ export default function Projects () {
       </div>
       <div css={gitHub}>
         <h2>
-          Want to see the code? Go to my github by clicking here{" "}
-          {window.innerWidth > 700 ? (
-            <i className="far fa-hand-point-right" />
-          ) : (
-            <i className="far fa-hand-point-down" />
-          )}
+          <p>
+            Want to see the code? Visit my github by clicking here{" "}
+            {window.innerWidth > 700 ? (
+              <i className="far fa-hand-point-right" />
+            ) : (
+              <i className="far fa-hand-point-down" />
+            )}
+          </p>
         </h2>
         <a
           href="http://www.github.com/ryndh/"

@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
+import linkedinImg from '../../static/assets/linkedin.png';
 
 const contactWrapper = css`
   text-align: center;
@@ -32,7 +33,7 @@ const linkedInLink = css`
   text-decoration: none;
 `;
 const linkedIn = css`
-  background-image: url("../../static/assets/linkedin.png");
+  background-image: url(${linkedinImg});
   background-size: cover;
   transition: 1s ease;
   height: 70px;
