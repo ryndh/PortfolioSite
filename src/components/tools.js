@@ -45,10 +45,17 @@ const toolTitle = css`
     animation: borderShrink 2s ease 0s 1 forwards;
   }
 `;
-const scaleTools = css`
-  transition: 1.5s ease;
-  /* figure out how to pass in tool.class here */
-`;
+const scaleTools = tool =>
+  css`
+    transition: 1.5s ease;
+    background-image: url(${tool.image});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70px;
+    width: 100px;
+    align-self: center;
+  `;
 export default function Tools () {
   const [tools, setTools] = useState(portfolioObj.tools);
 
@@ -62,7 +69,7 @@ export default function Tools () {
               <div>
                 <h1 css={toolTitle}>{tool.title}</h1>
               </div>
-              <div css={scaleTools} />
+              <div css={scaleTools(tool)} />
             </div>
           );
         })}

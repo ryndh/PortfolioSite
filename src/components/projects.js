@@ -81,7 +81,8 @@ export default function Projects () {
       transform: scale(1.1);
     }
   `;
-  const projectStyle = css`
+  const projectStyle = project => (
+    css`
     position: relative;
     transition: 1s ease;
     line-height: 2.5rem;
@@ -96,7 +97,7 @@ export default function Projects () {
     font-weight: 700;
     text-decoration: none;
     position: relative;
-    background-image: url(${img}); /*figure out how to pass in prop here*/
+    background-image: url(${project.image});
     background-size: cover;
     background-position: center;
     &:hover {
@@ -108,7 +109,8 @@ export default function Projects () {
       transition: 0.5s ease;
       transform: scale(0.98);
     }
-  `;
+  `
+  );
   const projectDescription = css`
     display: flex;
     flex-direction: column;
@@ -141,7 +143,7 @@ export default function Projects () {
         {projects.map((project, index) => {
           return (
             <a
-              css={projectStyle}
+              css={projectStyle(project)}
               href={project.url}
               target="_blank"
               key={index}
@@ -154,9 +156,6 @@ export default function Projects () {
                   Click to visit!
                 </h3>
               </div>
-              {/* <div className={showStats ? "stats" : " stats statsHidden"}> */}
-              {/* {`Link clicked ${clicks.length > 0 ? clicks.filter(item => item[0] == project.title)[0][1] : 0} times since 2/12/19`} */}
-              {/* </div> */}
             </a>
           );
         })}
