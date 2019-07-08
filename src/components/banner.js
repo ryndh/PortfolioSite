@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Weather from "./weather";
 import { css } from "@emotion/core";
 import profileImg from "../../static/assets/profile.jpg";
+import macImg from "../../static/assets/macbook.jpg";
 
 // import Ip from "./ip";
 
@@ -89,7 +90,7 @@ export default function Banner () {
     justify-content: right;
     align-content: center;
     padding-right: 50px;
-    background-image: url(static/assets/macbook.jpg);
+    background-image: url(${macImg});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
