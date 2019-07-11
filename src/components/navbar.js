@@ -1,5 +1,5 @@
-import React from "react";
-import { css } from "@emotion/core";
+import React, { useEffect, useState } from "react";
+import { css, keyframes } from "@emotion/core";
 
 const navStyle = css`
   z-index: 10;
@@ -12,11 +12,21 @@ const navStyle = css`
   justify-content: space-around;
   align-items: center;
   padding: 0px 40px;
-  transition: 1s ease;
+  transition: 1s ease-in-out;
 `;
-
+const navAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.8);
+  }
+  `;
+const navAn = css`
+  animation: ${navAnimation} 1s ease 0s 1 forwards;
+`;
 const linkStyle = css`
-  transition: 1s ease;
+  transition: 1s ease-in-out;
   font-size: 1.5rem;
   text-decoration: none;
   color: black;
@@ -24,7 +34,21 @@ const linkStyle = css`
 `;
 
 const navTopNames = ["Home", "Projects", "Contact"];
-export default function Navbar() {
+
+export default function Navbar () {
+  const [navAnimate, setNavAnimate] = useState(false);
+  const scrolling = () => {
+    let navOffset = window.pageYOffset;
+    if (navAnimate) {
+      navOffset < 0 ? setNavAnimate(false) : null;
+    } else {
+      navOffset > 0 ? setNavAnimate(true) : null;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', () => scrolling());
+  });
+
   const values = {
     Home: 0,
     Projects: 800,
@@ -41,7 +65,12 @@ export default function Navbar() {
       {navTopNames.map((name, i) => {
         const key = `${name}${i}`;
         return (
-          <a onClick={e => click(e)} name={name} css={linkStyle} key={key}>
+          <a
+            onClick={e => click(e)}
+            name={name}
+            css={navAnimate ? [linkStyle, navAn] : linkStyle}
+            key={key}
+          >
             {name}
           </a>
         );

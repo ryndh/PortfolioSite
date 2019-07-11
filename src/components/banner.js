@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./weather";
-import { css } from "@emotion/core";
+import { css, keyframes } from "@emotion/core";
 import profileImg from "../../static/assets/profile.jpg";
 import macImg from "../../static/assets/macbook.jpg";
 
@@ -9,80 +9,27 @@ import macImg from "../../static/assets/macbook.jpg";
 export default function Banner () {
   const [meModal, setMeModal] = useState(false);
   const [youModal, setYouModal] = useState(false);
-  const todaysDate = new Date().toLocaleDateString();
-  // const [add, setAdd] = useState("");
-
-  // useEffect(() => {
-  //   fetch("https://portfoliopython.herokuapp.com/visitors", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ date: todaysDate })
-  //   })
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(responseData => {
-  //       return setAdd(responseData);
-  //     });
-  // }, [todaysDate]);
-
-  // useEffect(() => {
-  //   setTimeout(ipChecker, 15000);
-  // }, [todaysDate]);
-
-  // const ipChecker = () => {
-  //   if (add[0] == "") {
-  //     fetch("https://portfoliopython.herokuapp.com/visitors", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify({ date: todaysDate })
-  //     })
-  //       .then(response => {
-  //         return response.json();
-  //       })
-  //       .then(responseData => {
-  //         return setAdd(responseData);
-  //       });
-  //   }
-  // };
+  // const todaysDate = new Date().toLocaleDateString();
+  const buttonAnimation = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    1% {
+      opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+  `;
 
   const clickHandleMe = title => {
     setMeModal(true);
-    // fetch("https://portfoliopython.herokuapp.com/clicks", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     site: title,
-    //     date: todaysDate
-    //   })
-    // })
-    //   .then(response => {
-    //     return response.json();
-    //   })
-    //   .then(responseData => console.log(responseData));
   };
 
   const clickHandleYou = title => {
-    // ipChecker();
     setYouModal(true);
-    // fetch("https://portfoliopython.herokuapp.com/clicks", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     site: title,
-    //     date: todaysDate
-    //   })
-    // }).then(response => {
-    //   return response.json();
-    // });
   };
   const someStyle = css`
     position: relative;
@@ -108,11 +55,12 @@ export default function Banner () {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
-    animation: buttons 1.5s ease 2s 1 forwards;
     opacity: 1;
   `;
   const button = css`
-    transition: 0.5s ease;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+    animation: ${buttonAnimation} 1s ease 0s 1;
     width: 30%;
     margin-bottom: 25px;
     padding: 5px 10px;
@@ -122,6 +70,9 @@ export default function Banner () {
     border-style: none;
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px #232b39a1;
+    &:hover{
+      transform: translateX(5px) scale(1.02);
+    }
   `;
   const aboutMeWrap = css`
     position: fixed;
@@ -223,7 +174,7 @@ export default function Banner () {
           </div>
           <div>
             <p>
-              What you see here is (my personal favorite) React, while there is
+              What you see here is React, with
               a little back-end logic in Python and Flask going on behind the
               scenes. I also use a PostgreSQL database.
             </p>
