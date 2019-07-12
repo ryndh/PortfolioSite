@@ -1,39 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { css, keyframes } from "@emotion/core";
 
-export default function Navbar() {
+const navStyle = css`
+  z-index: 10;
+  height: 70px;
+  background-image: linear-gradient(to right, white 20%, #b2bdc7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 1s ease-in-out;
+`;
+const navAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.8);
+  }
+  `;
+const navAn = css`
+  animation: ${navAnimation} 1s ease 0s 1 forwards;
+`;
+const linkStyle = css`
+  transition: 1s ease-in-out;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  padding: 0px 10px;
+`;
+
+const navTopNames = ["Home", "Projects", "Contact"];
+
+export default function Navbar () {
+  const [navAnimate, setNavAnimate] = useState(false);
+  const scrolling = (windowHeight) => {
+    windowHeight < 5 && navAnimate ? setNavAnimate(false) : null;
+    windowHeight > 5 && !navAnimate ? setNavAnimate(true) : null;
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', () => scrolling(window.pageYOffset));
+  });
+
+  
   const click = e => {
-    switch (e.target.name) {
-      case "home":
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-        break;
-      case "proj":
-        window.scrollTo({
-          top: 800,
-          behavior: "smooth"
-        });
-        break;
-      case "contact":
-        window.scrollTo({
-          top: window.innerWidth > 700 ? 2450 : 2700,
-          behavior: "smooth"
-        });
-        break;
-    }
+    const values = {
+      Home: 0,
+      Projects: document.getElementById('projScroll').getBoundingClientRect().top + window.pageYOffset,
+      Contact: document.getElementById('contactScroll').getBoundingClientRect().top + window.pageYOffset
+    };
+    window.scrollTo({
+      top: values[e.target.name],
+      behavior: "smooth"
+    });
   };
   return (
-    <div className="navbar">
-      <a onClick={e => click(e)} name="home" className="link">
-        Home
-      </a>
-      <a onClick={e => click(e)} name="proj" className="link">
-        Projects
-      </a>
-      <a onClick={e => click(e)} name="contact" className="link">
-        Contact
-      </a>
+    <div css={navStyle}>
+      {navTopNames.map((name, i) => {
+        const key = `${name}${i}`;
+        return (
+          <a
+            onClick={e => click(e)}
+            name={name}
+            css={navAnimate ? [linkStyle, navAn] : linkStyle}
+            key={key}
+          >
+            {name}
+          </a>
+        );
+      })}
     </div>
   );
 }

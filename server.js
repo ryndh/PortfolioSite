@@ -1,11 +1,13 @@
+require('dotenv').config();
 const express = require('express');
-const port = process.env.PORT || 8080;
 const app = express();
+const path = require("path");
+const port = process.env.PORT || 8000;
 
-app.use(express.static(__dirname + '/dist/'));
+app.use(express.static(path.join(__dirname, '/dist/')));
 app.get(/.*/, function (req, res) {
-  res.sendFile(__dirname + '/dist/index.html');
-})
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
 app.listen(port);
 
-console.log("server started");
+console.log(`server started on port ${port}`);
