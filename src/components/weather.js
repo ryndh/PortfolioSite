@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Weather() {
+export default function Weather () {
   const [weatherInfo, setWeatherInfo] = useState("");
   const getWeather = e => {
     e.preventDefault();

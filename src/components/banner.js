@@ -36,19 +36,25 @@ export default function Banner () {
     display: grid;
     justify-content: right;
     align-content: center;
-    padding-right: 50px;
     background-image: url(${macImg});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
     height: 700px;
     margin-bottom: 150px;
+    @media(max-width: 700px){
+      margin-bottom: 0px;
+      height: 400px;
+    }
   `;
   const ryanStyle = css`
     font-size: 4rem;
     overflow: hidden;
     color: #050608;
     margin: 20px;
+    @media(max-width: 700px){
+      font-size: 2.5rem;
+    }
   `;
   const buttonWrap = css`
     display: flex;
@@ -56,6 +62,7 @@ export default function Banner () {
     justify-content: space-around;
     align-items: flex-end;
     opacity: 1;
+    margin-right: 50px;
   `;
   const button = css`
     opacity: 1;

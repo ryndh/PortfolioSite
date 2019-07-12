@@ -7,7 +7,7 @@ import { Global, css } from "@emotion/core";
 const bodyStyles = css`
   body {
     margin: 0px;
-    font-family: "Montserrat";
+    font-family: "Khula", sans-serif;
     font-size: 70%;
   }
 `;

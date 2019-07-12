@@ -50,7 +50,7 @@ export default function Navbar () {
 
   const values = {
     Home: 0,
-    Projects: 800,
+    Projects: window.innerwidth > 700 ? 800 : 500,
     Contact: window.innerWidth > 700 ? 2450 : 2700
   };
   const click = e => {

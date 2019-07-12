@@ -11,6 +11,9 @@ const toolsWrap = css`
   display: grid;
   justify-items: center;
   align-items: center;
+  @media(max-width: 700px){
+    margin-top: 30px;
+  }
 `;
 const toolsHeading = css`
   margin-bottom: 30px;

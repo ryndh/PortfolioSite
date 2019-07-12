@@ -77,7 +77,7 @@ export const portfolioObj = {
       image: gitImg
     },
     {
-      title: "Javascript",
+      title: "JavaScript",
       icon: "../../static/assets/js.png",
       class: "js",
       image: jsImg
