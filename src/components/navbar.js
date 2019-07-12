@@ -44,12 +44,13 @@ export default function Navbar () {
     window.addEventListener('scroll', () => scrolling(window.pageYOffset));
   });
 
-  const values = {
-    Home: 0,
-    Projects: window.innerwidth > 700 ? 800 : 500,
-    Contact: window.innerWidth > 700 ? 2450 : 2700
-  };
+  
   const click = e => {
+    const values = {
+      Home: 0,
+      Projects: document.getElementById('projScroll').getBoundingClientRect().top + window.pageYOffset,
+      Contact: document.getElementById('contactScroll').getBoundingClientRect().top + window.pageYOffset
+    };
     window.scrollTo({
       top: values[e.target.name],
       behavior: "smooth"

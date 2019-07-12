@@ -46,7 +46,7 @@ const linkedIn = css`
 `;
 export default function Contact () {
   return (
-    <div css={contactWrapper}>
+    <div id="contactScroll" css={contactWrapper}>
       <h1 css={contactHeading}>Get In Touch</h1>
       <div css={contactGrid}>
         <div>

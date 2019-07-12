@@ -91,10 +91,10 @@ export default function Projects () {
       opacity: 0.9;
     }
     @media (max-width: 700px) {
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       line-height: 1rem;
       h1 {
-        font-size: .6rem;
+        font-size: .7rem;
       }
     }
   `;
@@ -131,8 +131,8 @@ export default function Projects () {
     }
   `;
   return (
-    <div css={projWrapper}>
-      <h1 css={projHeading}>Projects</h1>
+    <div id="projScroll" css={projWrapper}>
+      <h1 css={projHeading}>Past Projects</h1>
       <div css={projGrid}>
         {projects.map((project, index) => {
           return (

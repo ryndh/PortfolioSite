@@ -4,8 +4,6 @@ import { css, keyframes } from "@emotion/core";
 import profileImg from "../../static/assets/profile.jpg";
 import macImg from "../../static/assets/macbook.jpg";
 
-// import Ip from "./ip";
-
 export default function Banner () {
   const [meModal, setMeModal] = useState(false);
   const [youModal, setYouModal] = useState(false);
@@ -108,6 +106,11 @@ export default function Banner () {
     height: 50%;
     border-radius: 7px;
     font-size: 1.2rem;
+    overflow-y: scroll;
+    @media(max-width: 700px) {
+      display: flex;
+      flex-direction: column;
+    }
   `;
   const aboutYou = css`
     position: absolute;
@@ -135,7 +138,7 @@ export default function Banner () {
     background-size: cover;
     background-position-y: 34%;
     border-radius: 50%;
-    height: 175px;
+    min-height: 175px;
     width: 175px;
   `;
   const siteAboutHeading = css`
@@ -159,7 +162,6 @@ export default function Banner () {
       </div>
       <div css={youModal ? aboutYou : hideAboutMe}>
         <Weather />
-        {/* <Ip address={add} /> */}
         <div css={closeStyle} onClick={() => setYouModal(false)}>
           {" "}
           Close X
@@ -167,13 +169,11 @@ export default function Banner () {
       </div>
       <div css={meModal ? aboutMeWrap : hideAboutMe}>
         <div css={aboutMe}>
-          <div css={ryanPic} />
+          <div css={ryanPic}/>
           <div>
             <p>
-              I did not discover the wonderful field of software programming
-              until after college. However I am very glad I did, because I love
-              it!! When I'm not coding, I enjoy spending time with my family,
-              watching basketball, or reading a non-fiction book.{" "}
+              Hey there! I'm Ryan. I started looking into programming after I finished college, and decided to make it my career! When I'm not coding, you might find me spending time with my family,
+              watching a movie, or reading some non-fiction. I'm currently working for FamilySearch doing automated testing, fixing bugs, and trying to learn as much as I can! {" "}
             </p>
           </div>
           <div css={siteAboutHeading}>
