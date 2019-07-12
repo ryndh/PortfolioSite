@@ -23,7 +23,7 @@ const toolsGrid = css`
   height: 100%;
   display: grid;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: 300px;
 `;
 const toolStyle = css`
@@ -61,7 +61,7 @@ export default function Tools () {
 
   return (
     <div css={toolsWrap}>
-      <h1 css={toolsHeading}>A Few Tools I Use</h1>
+      <h1 css={toolsHeading}>Some Tools I Use</h1>
       <div css={toolsGrid}>
         {tools.map((tool, index) => {
           return (

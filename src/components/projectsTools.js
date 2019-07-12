@@ -8,6 +8,8 @@ import sassImg from "../../static/assets/sass.png";
 import htmlImg from "../../static/assets/html.png";
 import jsImg from "../../static/assets/js.png";
 import gitImg from "../../static/assets/git.png";
+import emotionImg from "../../static/assets/emotion.png";
+import nodeImg from "../../static/assets/node.png";
 
 export const portfolioObj = {
   projects: [
@@ -51,16 +53,16 @@ export const portfolioObj = {
       image: reactImg
     },
     {
-      title: "Python",
-      icon: "../../static/assets/python.png",
-      class: "python",
-      image: pythonImg
+      title: "Node",
+      icon: "../../static/assets/node.png",
+      class: "git",
+      image: nodeImg
     },
     {
-      title: "SCSS/CSS",
-      icon: "../../static/assets/sass.png",
-      class: "scss",
-      image: sassImg
+      title: "Emotion",
+      icon: "../../static/assets/emotion.png",
+      class: "git",
+      image: emotionImg
     },
     {
       title: "HTML5",
@@ -79,6 +81,18 @@ export const portfolioObj = {
       icon: "../../static/assets/js.png",
       class: "js",
       image: jsImg
+    },
+    {
+      title: "Python",
+      icon: "../../static/assets/python.png",
+      class: "python",
+      image: pythonImg
+    },
+    {
+      title: "SCSS/CSS",
+      icon: "../../static/assets/sass.png",
+      class: "scss",
+      image: sassImg
     }
   ]
 };
