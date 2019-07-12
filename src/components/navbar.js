@@ -11,7 +11,6 @@ const navStyle = css`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0px 40px;
   transition: 1s ease-in-out;
 `;
 const navAnimation = keyframes`
@@ -40,9 +39,9 @@ export default function Navbar () {
   const scrolling = () => {
     let navOffset = window.pageYOffset;
     if (navAnimate) {
-      navOffset < 0 ? setNavAnimate(false) : null;
+      navOffset < 5 ? setNavAnimate(false) : null;
     } else {
-      navOffset > 0 ? setNavAnimate(true) : null;
+      navOffset > 5 ? setNavAnimate(true) : null;
     }
   };
   useEffect(() => {

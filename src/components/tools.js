@@ -25,6 +25,10 @@ const toolsGrid = css`
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: 300px;
+  @media (max-width: 700px){
+    grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 175px;
+  }
 `;
 const toolStyle = css`
   width: 50%;

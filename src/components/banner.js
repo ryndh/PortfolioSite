@@ -16,7 +16,7 @@ export default function Banner () {
         transform: translateX(100%);
     }
     1% {
-      opacity: 1;
+        opacity: 1;
     }
     100% {
         opacity: 1;
@@ -70,7 +70,7 @@ export default function Banner () {
     border-style: none;
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px #232b39a1;
-    &:hover{
+    &:hover {
       transform: translateX(5px) scale(1.02);
     }
   `;
@@ -174,9 +174,9 @@ export default function Banner () {
           </div>
           <div>
             <p>
-              What you see here is React, with
-              a little back-end logic in Python and Flask going on behind the
-              scenes. I also use a PostgreSQL database.
+              What you see here is React, with a little back-end logic in Python
+              and Flask going on behind the scenes. I also use a PostgreSQL
+              database.
             </p>
           </div>
           <div css={closeStyle} onClick={() => setMeModal(false)}>

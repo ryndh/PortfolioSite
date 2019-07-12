@@ -1,47 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { portfolioObj } from "./projectsTools";
-import { css } from "@emotion/core";
-import img from "../../static/assets/movie.png";
+import { css, keyframes } from "@emotion/core";
 export default function Projects () {
+  const [hoverState, setHoverState] = useState(false);
   const [projects, setProjects] = useState(portfolioObj.projects);
-  // const [clicks, setClicks] = useState([]);
-  // const [showStats, setShowStats] = useState(false);
-  // const currentDate = new Date().toLocaleDateString();
 
-  // useEffect(() => {
-  //   fetch("https://portfoliopython.herokuapp.com/click_stats", {
-  //     method: "GET",
-  //     headers: {
-  //       "accept": "application/json",
-  //       "content-type": "application/json"
-  //     }
-  //   })
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(responseData => {
-  //       return responseData;
-  //     })
-  //     .then(data => {
-  //       setClicks(data);
-  //     })
-  //     .catch(err => console.log("Fetch Error", err));
-  // }, [projects]);
-
-  // const visited = title => {
-  //   fetch("https://portfoliopython.herokuapp.com/clicks", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       site: title,
-  //       date: currentDate
-  //     })
-  //   }).then(response => {
-  //     return response.json();
-  //   });
-  // };
   const projWrapper = css`
     text-align: center;
     margin-top: 30px;
@@ -66,6 +29,9 @@ export default function Projects () {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 300px;
     grid-gap: 50px 40px;
+    @media (max-width: 700px) {
+      grid-auto-rows: 175px;
+    }
   `;
   const gitHub = css`
     margin-top: 70px;
@@ -77,7 +43,6 @@ export default function Projects () {
     text-decoration: none;
     color: black;
     font-size: 3rem;
-    margin-left: 15px;
     &:hover {
       transition: 0.5s ease;
       transform: scale(1.1);
@@ -87,9 +52,8 @@ export default function Projects () {
     css`
       position: relative;
       transition: 1s ease;
-      line-height: 2.5rem;
+      line-height: 2rem;
       width: 100%;
-      /* padding: 30px 50px; */
       opacity: 0.8;
       border-radius: 10px;
       display: flex;
@@ -113,13 +77,8 @@ export default function Projects () {
     `;
   const projectDescriptionWrap = css`
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* padding: 55px 40px; */
-    align-items: center;
-    font-size: 1.3rem;
-    color: #050608;
+    font-size: 1.1rem;
+    color: white;
     top: 0;
     left: 0;
     height: 100%;
@@ -130,21 +89,50 @@ export default function Projects () {
     transition: 0.5s ease;
     &:hover {
       opacity: 0.9;
-      color: white;
+    }
+    @media (max-width: 700px) {
+      font-size: 0.5rem;
+      line-height: 1rem;
+      h1 {
+        font-size: .6rem;
+      }
     }
   `;
-
+  const projectDescriptionAnimation = keyframes`
+    10%, 20% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0;
+    }
+  `;
+  const includeAnimation = (length) => (
+    css`
+    animation: ${projectDescriptionAnimation} 10.4s ease ${(length * 2.6) + 1}s infinite;
+    `
+  );
   const projectDescription = css`
     height: 100%;
-    padding: 20px 40px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media(max-width: 700px){
+      padding: 10px;
+    }
+  `;
+  const gitHubFlex = css`
+    font-size: 1.3rem;
+    @media (max-width: 700px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   `;
   return (
     <div css={projWrapper}>
       <h1 css={projHeading}>Projects</h1>
-      {/* <button onClick={() => {
-                    setShowStats(!showStats)
-                    console.log(showStats )
-                    }}>{showStats ? 'Hide Link Stats' : 'Show Link Stats'}</button> */}
       <div css={projGrid}>
         {projects.map((project, index) => {
           return (
@@ -153,9 +141,10 @@ export default function Projects () {
               href={project.url}
               target="_blank"
               key={index}
-              // onClick={() => visited(project.title)}
+              onMouseEnter={() => setHoverState(true)}
+              onMouseLeave={() => setHoverState(false)}
             >
-              <div css={projectDescriptionWrap}>
+              <div css={hoverState ? projectDescriptionWrap : [projectDescriptionWrap, includeAnimation(index)]}>
                 <div css={projectDescription}>
                   <h1>{project.title}</h1>
                   <p>{project.description}</p>
@@ -169,24 +158,20 @@ export default function Projects () {
         })}
       </div>
       <div css={gitHub}>
-        <h2>
+        <div css={gitHubFlex}>
           <p>
-            Want to see the code? Visit my github by clicking here{" "}
-            {window.innerWidth > 700 ? (
-              <i className="far fa-hand-point-right" />
-            ) : (
-              <i className="far fa-hand-point-down" />
-            )}
+            <span>
+              Want to see the code? <br />
+              Visit my github by clicking the icon
+            </span>
           </p>
-        </h2>
-        <a
-          href="http://www.github.com/ryndh/"
-          target="_blank"
-          css={gitHubLink}
-          // onClick={() => visited("Github")}
-        >
-          <i className="fab fa-github" />
-        </a>
+          <a
+            css={gitHubLink}
+            href="http://www.github.com/ryndh/"
+            target="_blank"
+            className="fab fa-github"
+          />
+        </div>
       </div>
     </div>
   );
