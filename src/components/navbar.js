@@ -36,16 +36,12 @@ const navTopNames = ["Home", "Projects", "Contact"];
 
 export default function Navbar () {
   const [navAnimate, setNavAnimate] = useState(false);
-  const scrolling = () => {
-    let navOffset = window.pageYOffset;
-    if (navAnimate) {
-      navOffset < 5 ? setNavAnimate(false) : null;
-    } else {
-      navOffset > 5 ? setNavAnimate(true) : null;
-    }
+  const scrolling = (windowHeight) => {
+    windowHeight < 5 && navAnimate ? setNavAnimate(false) : null;
+    windowHeight > 5 && !navAnimate ? setNavAnimate(true) : null;
   };
   useEffect(() => {
-    window.addEventListener('scroll', () => scrolling());
+    window.addEventListener('scroll', () => scrolling(window.pageYOffset));
   });
 
   const values = {
