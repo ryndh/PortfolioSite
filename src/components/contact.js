@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "@emotion/core";
 import linkedinImg from '../../static/assets/linkedin.png';
+import theme from './theme';
 
 const contactWrapper = css`
   text-align: center;
@@ -14,6 +15,7 @@ const contactWrapper = css`
 const contactHeading = css`
   margin-top: 30px;
   font-size: 3.5rem;
+  color: ${theme.colors.headings};
 `;
 const contactGrid = css`
   margin-top: 20px;
@@ -25,6 +27,7 @@ const contactGrid = css`
 const headingStyle = css`
   line-height: 2.5rem;
   margin-bottom: 20px;
+  color: ${theme.colors.subtext}
 `;
 
 const linkedInLink = css`

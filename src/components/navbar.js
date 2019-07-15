@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { css, keyframes } from "@emotion/core";
+import theme from './theme';
 
 const navStyle = css`
   z-index: 10;
   height: 70px;
-  background-image: linear-gradient(to right, white 20%, #b2bdc7);
+  /* background-image: linear-gradient(to right, white 20%, #b2bdc7); */
+  background-color: ${theme.colors.nav.background};
   position: fixed;
   width: 100%;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   transition: 1s ease-in-out;
+  border-bottom: 1px solid ${theme.colors.nav.border};
 `;
 const navAnimation = keyframes`
   0% {
@@ -29,7 +32,7 @@ const linkStyle = css`
   transition: 1s ease-in-out;
   font-size: 1.5rem;
   text-decoration: none;
-  color: black;
+  color: ${theme.colors.nav.text};
   padding: 0px 10px;
 `;
 

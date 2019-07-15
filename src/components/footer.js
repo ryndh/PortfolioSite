@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
+import theme from './theme';
 
 const footerWrap = css`
   display: flex;
@@ -7,10 +8,13 @@ const footerWrap = css`
   align-items: center;
   height: 70px;
   width: 100%;
-  background-color: #d2d9e0;
+  /* border-top: 2px solid ${theme.colors.nav.border}; */
+  background-color: ${theme.colors.footer.background};
+  /* background-image: linear-gradient(to top right, white 20%, ${theme.colors.footer.background}); */
+
 `;
 const footer = css`
-  color: #050608;
+  color: ${theme.colors.footer.text};
   font-size: initial;
 `;
 export default function Footer () {
