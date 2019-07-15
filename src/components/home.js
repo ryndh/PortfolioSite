@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import Projects from "./projects";
 import Tools from "./tools";
 import Contact from "./contact";
@@ -15,17 +16,27 @@ const mainBody = css`
 `;
 export default function Home () {
   return (
-    <div css={appStyle}>
-      <Navbar />
-      <div css={mainBody}>
-        <div>
-          <Banner />
-          <Projects />
-          <Tools />
-          <Contact />
-          <Footer />
+    <BrowserRouter onUpdate={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div css={appStyle}>
+        <Navbar />
+        <div css={mainBody}>
+          <div>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <>
+                  <Banner />
+                  <Tools />
+                  <Contact />
+                </>
+              )}
+            />
+            <Route path="/projects" component={Projects} />
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { css, keyframes } from "@emotion/core";
 
 const navStyle = css`
@@ -32,7 +33,7 @@ const linkStyle = css`
   padding: 0px 10px;
 `;
 
-const navTopNames = ["Home", "Projects", "Contact"];
+const navTopNames = ["Home", "Projects"]; //Add Contact back in eventually
 
 export default function Navbar () {
   const [navAnimate, setNavAnimate] = useState(false);
@@ -44,31 +45,44 @@ export default function Navbar () {
     window.addEventListener('scroll', () => scrolling(window.pageYOffset));
   });
 
-  
-  const click = e => {
-    const values = {
-      Home: 0,
-      Projects: document.getElementById('projScroll').getBoundingClientRect().top + window.pageYOffset,
-      Contact: document.getElementById('contactScroll').getBoundingClientRect().top + window.pageYOffset
-    };
-    window.scrollTo({
-      top: values[e.target.name],
-      behavior: "smooth"
-    });
-  };
+
+  // const click = e => {
+  //   const values = {
+  //     Home: 0,
+  //     Projects: document.getElementById('projScroll').getBoundingClientRect().top + window.pageYOffset,
+  //     Contact: document.getElementById('contactScroll').getBoundingClientRect().top + window.pageYOffset
+  //   };
+  //   window.scrollTo({
+  //     top: values[e.target.name],
+  //     behavior: "smooth"
+  //   });
+  // };
   return (
     <div css={navStyle}>
       {navTopNames.map((name, i) => {
         const key = `${name}${i}`;
+        let path;
+        switch (name) {
+        case 'Home' || 'Contact':
+          path = '/';
+          break;
+        case 'Projects':
+          path = '/projects';
+          break;
+        default:
+          path = '/';
+          break;
+        }
         return (
-          <a
-            onClick={e => click(e)}
+          <Link
+            // onClick={e => click(e)}
+            to={path}
             name={name}
             css={navAnimate ? [linkStyle, navAn] : linkStyle}
             key={key}
           >
             {name}
-          </a>
+          </Link>
         );
       })}
     </div>

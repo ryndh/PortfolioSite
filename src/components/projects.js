@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { portfolioObj } from "./projectsTools";
 import { css, keyframes } from "@emotion/core";
 export default function Projects () {
   const [hoverState, setHoverState] = useState(false);
   const [projects, setProjects] = useState(portfolioObj.projects);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const projWrapper = css`
     text-align: center;
@@ -17,7 +20,7 @@ export default function Projects () {
   const projHeading = css`
     width: 80%;
     padding-top: 30px;
-    border-top: 1px solid #050608;
+    /* border-top: 1px solid #050608; */
     font-size: 3.5rem;
     margin-bottom: 40px;
   `;
@@ -34,7 +37,7 @@ export default function Projects () {
     }
   `;
   const gitHub = css`
-    margin-top: 70px;
+    margin: 70px 0px;
     display: flex;
     align-items: center;
   `;

@@ -19,20 +19,24 @@ const toolTitle = (length) => css`
   transition: 1s ease;
   margin-bottom: 30px;
   padding-bottom: 10px;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &::after {
     /* opacity: 0; */
     display: block;
     content: "";
     padding-bottom: 10px;
     border-bottom: 2px solid white;
+    width: 50%;
     /* animation: ${borderGrow} 24s ease ${length * 3}s infinite; */
   }
 `;
 const toolsWrap = css`
   text-align: center;
   background-color: #d2d9e0;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   padding: 50px 0px;
   width: 100%;
   display: grid;
@@ -61,12 +65,11 @@ const toolsGrid = css`
   }
 `;
 const toolStyle = css`
-  width: 50%;
+  width: 100%;
   transition: 1s ease;
   display: flex;
   flex-direction: column;
 `;
-
 const scaleTools = tool =>
   css`
     transition: 1.5s ease;

@@ -7,7 +7,9 @@ import macImg from "../../static/assets/macbook.jpg";
 export default function Banner () {
   const [meModal, setMeModal] = useState(false);
   const [youModal, setYouModal] = useState(false);
-  // const todaysDate = new Date().toLocaleDateString();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const buttonAnimation = keyframes`
     0% {
         opacity: 0;
@@ -39,7 +41,7 @@ export default function Banner () {
     background-position: center;
     background-size: cover;
     height: 700px;
-    margin-bottom: 150px;
+    /* margin-bottom: 150px; */
     @media(max-width: 700px){
       margin-bottom: 0px;
       height: 400px;
