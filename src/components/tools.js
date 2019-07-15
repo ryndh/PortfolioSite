@@ -24,6 +24,9 @@ const toolTitle = (length) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media(max-width: 700px) {
+    margin-bottom: 0px;
+  }
   &::after {
     /* opacity: 0; */
     display: block;

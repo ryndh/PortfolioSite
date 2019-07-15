@@ -44,6 +44,7 @@ export default function Banner () {
     height: 700px;
     /* margin-bottom: 150px; */
     @media(max-width: 700px){
+      background-position: left;
       margin-bottom: 0px;
       height: 400px;
     }
@@ -55,6 +56,7 @@ export default function Banner () {
     margin: 20px;
     @media(max-width: 700px){
       font-size: 2.5rem;
+      margin: 10px;
     }
   `;
   const buttonWrap = css`
