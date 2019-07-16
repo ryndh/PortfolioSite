@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import Weather from "./weather";
 import { css, keyframes } from "@emotion/core";
 import profileImg from "../../static/assets/profile.jpg";
-import macImg from "../../static/assets/macbook.jpg";
+import treeImg from "../../static/assets/trees.jpg";
+import theme from './theme';
 
 export default function Banner () {
   const [meModal, setMeModal] = useState(false);
   const [youModal, setYouModal] = useState(false);
-  // const todaysDate = new Date().toLocaleDateString();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const buttonAnimation = keyframes`
     0% {
         opacity: 0;
@@ -34,13 +37,14 @@ export default function Banner () {
     display: grid;
     justify-content: right;
     align-content: center;
-    background-image: url(${macImg});
+    background-image: url(${treeImg});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 700px;
-    margin-bottom: 150px;
+    /* margin-bottom: 150px; */
     @media(max-width: 700px){
+      background-position: left;
       margin-bottom: 0px;
       height: 400px;
     }
@@ -48,10 +52,11 @@ export default function Banner () {
   const ryanStyle = css`
     font-size: 4rem;
     overflow: hidden;
-    color: #050608;
+    color: ${theme.colors.banner};
     margin: 20px;
     @media(max-width: 700px){
       font-size: 2.5rem;
+      margin: 10px;
     }
   `;
   const buttonWrap = css`
@@ -70,8 +75,8 @@ export default function Banner () {
     margin-bottom: 25px;
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #28a745;
-    color: white;
+    background-color: ${theme.colors.buttons.background};
+    color: ${theme.colors.buttons.text};
     border-style: none;
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px #232b39a1;
@@ -106,7 +111,7 @@ export default function Banner () {
     height: 50%;
     border-radius: 7px;
     font-size: 1.2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     @media(max-width: 700px) {
       display: flex;
       flex-direction: column;
@@ -126,6 +131,7 @@ export default function Banner () {
     height: 40%;
     border-radius: 7px;
     font-size: 1rem;
+    overflow: auto;
   `;
   const closeStyle = css`
     position: absolute;
@@ -172,8 +178,8 @@ export default function Banner () {
           <div css={ryanPic}/>
           <div>
             <p>
-              Hey there! I'm Ryan. I started looking into programming after I finished college, and decided to make it my career! When I'm not coding, you might find me spending time with my family,
-              watching a movie, or reading some non-fiction. I'm currently working for FamilySearch doing automated testing, fixing bugs, and trying to learn as much as I can! {" "}
+              Hey there! I'm Ryan. I'm currently working for FamilySearch doing automated testing, fixing bugs, and trying to learn as much as I can! When I'm not coding, you might find me spending time with my family,
+              watching a movie, or reading some non-fiction.  {" "}
             </p>
           </div>
           <div css={siteAboutHeading}>

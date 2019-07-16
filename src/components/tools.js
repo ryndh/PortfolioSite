@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { portfolioObj } from "./projectsTools";
 import { css, keyframes } from "@emotion/core";
+import theme from './theme';
 
 const borderGrow = keyframes`
   4% {
@@ -15,24 +16,32 @@ const borderGrow = keyframes`
   }
 `;
 const toolTitle = (length) => css`
-  color: #050608;
+  color: ${theme.colors.tools.title};
   transition: 1s ease;
   margin-bottom: 30px;
   padding-bottom: 10px;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media(max-width: 700px) {
+    margin-bottom: 0px;
+  }
   &::after {
     /* opacity: 0; */
     display: block;
     content: "";
     padding-bottom: 10px;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid ${theme.colors.tools.border};
+    width: 50%;
+    border-radius: 2px;
     /* animation: ${borderGrow} 24s ease ${length * 3}s infinite; */
   }
 `;
 const toolsWrap = css`
   text-align: center;
-  background-color: #d2d9e0;
-  margin-top: 150px;
+  background-color: white;
+  /* margin-top: 150px; */
   padding: 50px 0px;
   width: 100%;
   display: grid;
@@ -45,7 +54,7 @@ const toolsWrap = css`
 const toolsHeading = css`
   margin-bottom: 30px;
   font-size: 3.5rem;
-  color: white;
+  color: ${theme.colors.headings};
 `;
 const toolsGrid = css`
   margin-top: 20px;
@@ -61,12 +70,11 @@ const toolsGrid = css`
   }
 `;
 const toolStyle = css`
-  width: 50%;
+  width: 100%;
   transition: 1s ease;
   display: flex;
   flex-direction: column;
 `;
-
 const scaleTools = tool =>
   css`
     transition: 1.5s ease;
