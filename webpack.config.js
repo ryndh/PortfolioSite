@@ -44,28 +44,6 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.s?css$/,
-      //   use: [
-      //     {
-      //       loader: 'style-loader'
-      //     },
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 2
-      //       }
-      //     },
-      //     {
-      //       loader: 'sass-loader',
-      //       options: {
-      //         outputStyle: 'expanded',
-      //         sourceMap: true,
-      //         sourceMapContents: true
-      //       }
-      //     }
-      //   ]
-      // },
       {
         type: 'javascript/auto',
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
