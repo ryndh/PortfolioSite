@@ -3,9 +3,8 @@ import { portfolioObj } from "./projectsTools";
 import { css, keyframes } from "@emotion/core";
 import theme from './theme';
 
-export default function Projects () {
+export default function Projects({projectObj}) {
   const [hoverState, setHoverState] = useState(false);
-  const [projects, setProjects] = useState(portfolioObj.projects);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -144,7 +143,7 @@ export default function Projects () {
     <div id="projScroll" css={projWrapper}>
       <h1 css={projHeading}>Past Projects</h1>
       <div css={projGrid}>
-        {projects.map((project, index) => {
+        {projectObj.map((project, index) => {
           return (
             <a
               css={projectStyle(project)}

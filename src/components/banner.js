@@ -159,7 +159,7 @@ export default function Banner () {
         <span>Full Stack Developer</span>
       </p>
       <div css={buttonWrap}>
-        <button onClick={() => clickHandleMe("About Me")} css={button}>
+        <button data-test-about onClick={() => clickHandleMe("About Me")} css={button}>
           About Me
         </button>
         <button onClick={() => clickHandleYou("About You")} css={button}>
@@ -169,7 +169,6 @@ export default function Banner () {
       <div css={youModal ? aboutYou : hideAboutMe}>
         <Weather />
         <div css={closeStyle} onClick={() => setYouModal(false)}>
-          {" "}
           Close X
         </div>
       </div>
@@ -178,8 +177,8 @@ export default function Banner () {
           <div css={ryanPic}/>
           <div>
             <p>
-              Hey there! I'm Ryan. I'm currently working for FamilySearch doing automated testing, fixing bugs, and trying to learn as much as I can! When I'm not coding, you might find me spending time with my family,
-              watching a movie, or reading some non-fiction.  {" "}
+              Hey there! I'm Ryan. I'm currently working as a web developer for FamilySearch! When I'm not coding, you might find me spending time with my family,
+              watching a movie, or reading some non-fiction.
             </p>
           </div>
           <div css={siteAboutHeading}>

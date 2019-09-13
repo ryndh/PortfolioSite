@@ -7,6 +7,7 @@ import Footer from "./footer";
 import Navbar from "./navbar";
 import Banner from "./banner";
 import { css } from "@emotion/core";
+import { portfolioObj } from "./projectsTools";
 
 const appStyle = css`
   position: relative;
@@ -32,7 +33,7 @@ export default function Home () {
                 </>
               )}
             />
-            <Route path="/projects" component={Projects} />
+            <Route path="/projects" render={(props) => <Projects projectObj={portfolioObj.projects}/>}/>
             <Footer />
           </div>
         </div>
